@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  messenger-app
 //
-//  Created by M Jawad Khan on 20/08/2018.
+//  Created by Jay Khan on 20/08/2018.
 //  Copyright © 2018 Jay Khan. All rights reserved.
 //
 
@@ -19,7 +19,18 @@ class ChatViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderID: String!, senderDisplayName: String!, date: Date!) {
+        
+        let ref = Constants.refs.databaseChats.childByAutoId()
+        
+        let message = ["sender_id": senderID, "name": senderDisplayName, "text": text]
+        
+        ref.setValue(message)
+        
+        finishSendingMessage()
+    }
 
 }
+
 
