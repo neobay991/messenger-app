@@ -8,6 +8,7 @@
 
 import UIKit
 import JSQMessagesViewController
+import Firebase
 
 class ChatViewController: JSQMessagesViewController {
     
@@ -30,6 +31,25 @@ class ChatViewController: JSQMessagesViewController {
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
+        
+        let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
+        
+        _ = query.observe(.childAdded, with: { [weak self] snapshot in
+            
+            if  let data        = snapshot.value as? [String: String],
+                let id          = data["sender_id"],
+                let name        = data["name"],
+                let text        = data["text"],
+                !text.isEmpty
+            {
+                if let message = JSQMessage(senderId: id, displayName: name, text: text)
+                {
+                    self?.messages.append(message)
+                    
+                    self?.finishReceivingMessage()
+                }
+            }
+        })
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
@@ -64,11 +84,11 @@ class ChatViewController: JSQMessagesViewController {
         return messages[indexPath.item].senderId == senderId ? 0 : 15
     }
     
-    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderID: String!, senderDisplayName: String!, date: Date!) 
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) 
     {
         let ref = Constants.refs.databaseChats.childByAutoId()
         
-        let message = ["sender_id": senderID, "name": senderDisplayName, "text": text]
+        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
         
         ref.setValue(message)
         
