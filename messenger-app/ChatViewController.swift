@@ -64,11 +64,11 @@ class ChatViewController: JSQMessagesViewController {
         return messages[indexPath.item].senderId == senderId ? 0 : 15
     }
     
-    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderID: String!, senderDisplayName: String!, date: Date!) 
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!)
     {
         let ref = Constants.refs.databaseChats.childByAutoId()
         
-        let message = ["sender_id": senderID, "name": senderDisplayName, "text": text]
+        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
         
         ref.setValue(message)
         
