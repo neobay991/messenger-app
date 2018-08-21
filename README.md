@@ -34,34 +34,28 @@ Enter the following commands in your terminal:
 Clone the repository:
 `git clone https://github.com/neobay991/messenger-app.git`
 
-- Install the required pods using CocoaPods:
+Install the required pods using CocoaPods:
 - `sudo gem install cocoapod'
 - 'pod install'
+
+Open the project in XCode
 - 'open messenger-app.xcodeproj' in XCode
 - To run the Build, press ⌘R (Command + R)
 
 To download XCode, visit: [https://developer.apple.com/xcode/](https://developer.apple.com/xcode/)
 
-## Usage
-Enter the following commands in your terminal:
-
-Change into the main directory:
-`cd messenger-app`
-
-Open the project in XCode:
-`open messenger-app.xcodeproj`
-
 ## Technical
+
 ### Tech/Frameworks Used
-**Swift** -- as the native app framework  
-**XCode** -- as the IDE
-**Firebase** -- as the database system   
+- **Swift** -- as the native app framework  
+- **XCode** -- as the IDE
+- **Firebase** -- as the database system   
 
 ### Our Documentation
-
+- Add link here
 
 ## Screenshots
-
+- Add links here
 
 ## Credits
 
@@ -69,4 +63,6 @@ Open the project in XCode:
 [Cornelis Heuperman](https://github.com/heuperman)  
 [Yvonne Tang](https://github.com/YvCodeHong)  
 [Jay Khan](https://github.com/neobay991) 
-The good people at [Makers Academy](https://makers.tech/) -- instructions  
+
+Reflections on process and learnings from this project can be found [here](https://hackmd.io/fV_wckE8Qw-rCujGyccgBQ?both).
+
