@@ -85,6 +85,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) 
+
     {
         let ref = Constants.refs.databaseChats.childByAutoId()
         
