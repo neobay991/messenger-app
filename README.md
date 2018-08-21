@@ -35,11 +35,11 @@ Clone the repository:
 `git clone https://github.com/neobay991/messenger-app.git`
 
 Install the required pods using CocoaPods:
-- `sudo gem install cocoapods'
-- 'pod install'
+- `sudo gem install cocoapods`
+- `pod install`
 
 Open the project in XCode
-- 'open messenger-app.xcodeproj' in XCode
+- `open messenger-app.xcodeproj` in XCode
 - To run the Build, press ⌘R (Command + R)
 
 To download XCode, visit: [https://developer.apple.com/xcode/](https://developer.apple.com/xcode/)
