@@ -14,6 +14,11 @@ class ChatViewController: JSQMessagesViewController {
     
     var messages = [JSQMessage]()
     
+    /** @var handle
+     @brief The handler for the auth state listener, to allow cancelling later.
+     */
+    var handle: AuthStateDidChangeListenerHandle?
+    
     lazy var outgoingBubble: JSQMessagesBubbleImage = {
         return JSQMessagesBubbleImageFactory()!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
     }()
@@ -44,6 +49,8 @@ class ChatViewController: JSQMessagesViewController {
             showDisplayNameDialog()
         }
         
+   
+        
         title = "Chat: \(senderDisplayName!)"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showDisplayNameDialog))
@@ -73,6 +80,25 @@ class ChatViewController: JSQMessagesViewController {
                 }
             }
         })
+    }
+    
+    func setTitleDisplay(_ user: User?) {
+        if let name = user?.displayName {
+            self.navigationItem.title = "Welcome \(name)"
+        } else {
+            self.navigationItem.title = "Authentication Example"
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // [START auth_listener]
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            // [START_EXCLUDE]
+            self.setTitleDisplay(user)
+            // [END_EXCLUDE]
+        }
+        // [END auth_listener]
     }
     
     @objc func showDisplayNameDialog()
