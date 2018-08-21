@@ -25,8 +25,31 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        senderId = "1234"
-        senderDisplayName = "Meshenger"
+        let defaults = UserDefaults.standard
+        
+        if  let id = defaults.string(forKey: "jsq_id"),
+            let name = defaults.string(forKey: "jsq_name")
+        {
+            senderId = id
+            senderDisplayName = name
+        }
+        else
+        {
+            senderId = String(arc4random_uniform(999999))
+            senderDisplayName = ""
+            
+            defaults.set(senderId, forKey: "jsq_id")
+            defaults.synchronize()
+            
+            showDisplayNameDialog()
+        }
+        
+        title = "Chat: \(senderDisplayName!)"
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showDisplayNameDialog))
+        tapGesture.numberOfTapsRequired = 1
+        
+        navigationController?.navigationBar.addGestureRecognizer(tapGesture)
     
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
@@ -50,6 +73,41 @@ class ChatViewController: JSQMessagesViewController {
                 }
             }
         })
+    }
+    
+    @objc func showDisplayNameDialog()
+    {
+        let defaults = UserDefaults.standard
+        
+        let alert = UIAlertController(title: "Your Display Name", message: "Before you can chat, please choose a display name. Others will see this name when you send chat messages. You can change your display name again by tapping the navigation bar.", preferredStyle: .alert)
+        
+        alert.addTextField { textField in
+            
+            if let name = defaults.string(forKey: "jsq_name")
+            {
+                textField.text = name
+            }
+            else
+            {
+                let names = ["Daniel", "Jay", "Yvonne", "Kees"]
+                textField.text = names[Int(arc4random_uniform(UInt32(names.count)))]
+            }
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self, weak alert] _ in
+            
+            if let textField = alert?.textFields?[0], !textField.text!.isEmpty {
+                
+                self?.senderDisplayName = textField.text
+                
+                self?.title = "Chat: \(self!.senderDisplayName!)"
+                
+                defaults.set(textField.text, forKey: "jsq_name")
+                defaults.synchronize()
+            }
+        }))
+        
+        present(alert, animated: true, completion: nil)
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
