@@ -35,7 +35,7 @@ Clone the repository:
 `git clone https://github.com/neobay991/messenger-app.git`
 
 Install the required pods using CocoaPods:
-- `sudo gem install cocoapod'
+- `sudo gem install cocoapods'
 - 'pod install'
 
 Open the project in XCode
