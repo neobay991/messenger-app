@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/kees/Projects/week-11/messenger-app/messenger-app/TestController.swift">
+   </FileRef>
+   <FileRef
       location = "group:messenger-app.xcodeproj">
    </FileRef>
    <FileRef

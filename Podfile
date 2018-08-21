@@ -8,5 +8,5 @@ target 'messenger-app' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'JSQMessagesViewController'
-
+    pod 'FirebaseUI'
 end
