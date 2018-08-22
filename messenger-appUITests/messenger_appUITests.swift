@@ -110,14 +110,31 @@ class messenger_appUITests: messenger_appUITestsCase {
         XCTAssert(toolbar.buttons["Send"].exists)
     }
  
-    // It checks an existing user cannot log in if they exter wrong password
+    // It checks an existing user cannot log in if they enter wrong password
     func testLoginInFailWrongPassword() {
+        
+        app
+            .tap()
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("test@test.com")
+        
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("wromngpassword")
+        
+        app.buttons["OK"].tap()
+        
+        XCTAssert(app.buttons["OK"].exists)
+    }
+    // It checks an existing user cannot log in if they do not enter an email address
+    func testLoginInFailVariationOne() {
         
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
-        emailTextField.typeText("test@test.com")
         
         let passwordTextField = app.textFields["Password"]
         passwordTextField.tap()
