@@ -12,11 +12,11 @@ class UITests: messenger_appUITestsCase {
     
     func testSignUp() {
         
-        app.tap()
+        app.buttons["Sign Up"].tap()
         
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
-        emailTextField.typeText("jay4@test.com")
+        emailTextField.typeText("jay7@test.com")
         
         let passwordTextField = app.textFields["Password"]
         passwordTextField.tap()
@@ -36,7 +36,7 @@ class UITests: messenger_appUITestsCase {
         
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
-        emailTextField.typeText("jay4@test.com")
+        emailTextField.typeText("test@test.com")
         
         let passwordTextField = app.textFields["Password"]
         passwordTextField.tap()
@@ -49,6 +49,14 @@ class UITests: messenger_appUITestsCase {
         toolbar.typeText("Test message")
         toolbar.buttons["Send"].tap()
         
+    }
+    
+    func testLoginFormExists() {
+        
+        XCTAssert(app.buttons["Log In"].exists)
+        XCTAssert(app.textFields["Email"].exists)
+        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.buttons["OK"].exists)
     }
 
 }
