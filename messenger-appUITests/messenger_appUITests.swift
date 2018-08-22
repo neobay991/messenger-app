@@ -1,60 +1,71 @@
 //
-//  messenger_appUITests.swift
+//  messenger_appUITests1.swift
 //  messenger-appUITests
 //
-//  Created by M Jawad Khan on 20/08/2018.
+//  Created by M Jawad Khan on 22/08/2018.
 //  Copyright © 2018 Jay Khan. All rights reserved.
 //
 
 import XCTest
 
-class messenger_appUITests: XCTestCase {
-    var app: XCUIApplication!
+class UITests: messenger_appUITestsCase {
     
-    override func setUp() {
-        super.setUp()
+    func testSignUp() {
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        app.buttons["Sign Up"].tap()
         
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        let app = XCUIApplication()
-        app.launch()
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("jay7@test.com")
         
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
         
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app.buttons["OK"].tap()
+        
+        let toolbar = app.toolbars["Toolbar"]
+        toolbar.textViews["New Message"].tap()
+        toolbar.buttons["Send"].tap()
         
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testLoginIn() {
+        
+        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("test@test.com")
+        
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["OK"].tap()
+        
+        let toolbar = app.toolbars["Toolbar"]
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+        
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLoginFormExists() {
+        
+        XCTAssert(app.buttons["Log In"].exists)
+        XCTAssert(app.textFields["Email"].exists)
+        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.buttons["OK"].exists)
     }
-//    
-//    func testOne() {
-//        let app = XCUIApplication()
-//        app.launch()
-//        XCTAssert(app.buttons["OK"].exists)
-//    }
-//    
-//    func userSignUp() {
-//        let app = XCUIApplication()
-//        app.launch()
-//        let textField1 = UserViewController.textFields["Username"]
-//        textField1.tap()
-//        textField1.typeText("jay@test.com")
-//        let textField2 = UserViewController.textFields["Password"]
-//        app.UserViewController.tap()
-//       app.UserViewController.typeText("password")
-//        
-//        // Use recording to get started writing UI tests.
-//        // Use XCTAssert and related functions to verify your tests produce the correct results.
-//    }
-
+    
+    func testSignUpFormExists() {
+        
+        app.buttons["Sign Up"].tap()
+        
+        XCTAssert(app.buttons["Sign Up"].exists)
+        XCTAssert(app.textFields["Email"].exists)
+        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.buttons["OK"].exists)
+    }
 }
