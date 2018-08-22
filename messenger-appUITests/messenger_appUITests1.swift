@@ -30,4 +30,25 @@ class UITests: messenger_appUITestsCase {
         
     }
     
+    func testLoginIn() {
+        
+        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("jay4@test.com")
+        
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["OK"].tap()
+        
+        let toolbar = app.toolbars["Toolbar"]
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+        
+    }
+
 }
