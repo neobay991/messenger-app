@@ -1,0 +1,33 @@
+//
+//  messenger_appUITests1.swift
+//  messenger-appUITests
+//
+//  Created by M Jawad Khan on 22/08/2018.
+//  Copyright © 2018 Jay Khan. All rights reserved.
+//
+
+import XCTest
+
+class UITests: messenger_appUITestsCase {
+    
+    func testSignUp() {
+        
+        app.tap()
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("jay4@test.com")
+        
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["OK"].tap()
+        
+        let toolbar = app.toolbars["Toolbar"]
+        toolbar.textViews["New Message"].tap()
+        toolbar.buttons["Send"].tap()
+        
+    }
+    
+}

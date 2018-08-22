@@ -7,7 +7,9 @@
 //
 
 import XCTest
+
 @testable import messenger_app
+import Firebase
 
 class messenger_appTests: XCTestCase {
     
