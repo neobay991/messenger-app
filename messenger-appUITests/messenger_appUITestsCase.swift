@@ -9,6 +9,7 @@
 import XCTest
 
 class messenger_appUITestsCase: XCTestCase {
+    
     let app = XCUIApplication()
         
     override func setUp() {

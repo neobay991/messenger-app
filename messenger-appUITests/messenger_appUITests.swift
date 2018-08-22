@@ -8,15 +8,36 @@
 
 import XCTest
 
-class UITests: messenger_appUITestsCase {
+class messenger_appUITests: messenger_appUITestsCase {
+    
+    func testSignUpFormExists() {
+        
+        app.buttons["Sign Up"].tap()
+        
+        XCTAssert(app.buttons["Sign Up"].exists)
+        XCTAssert(app.textFields["Email"].exists)
+        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.buttons["OK"].exists)
+    }
+    
+    func testLoginFormExists() {
+        
+        XCTAssert(app.buttons["Log In"].exists)
+        XCTAssert(app.textFields["Email"].exists)
+        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.buttons["OK"].exists)
+    }
     
     func testSignUp() {
         
         app.buttons["Sign Up"].tap()
         
+        // generate a random number to append to email address
+        let randomNumber = arc4random()
+        let emailAdress = "test\(randomNumber)@test.com"
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
-        emailTextField.typeText("jay7@test.com")
+        emailTextField.typeText(emailAdress)
         
         let passwordTextField = app.textFields["Password"]
         passwordTextField.tap()
@@ -26,10 +47,9 @@ class UITests: messenger_appUITestsCase {
         
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
-        toolbar.buttons["Send"].tap()
-        
+        XCTAssert(toolbar.buttons["Send"].exists)
     }
-    
+ 
     func testLoginIn() {
         
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
@@ -48,24 +68,6 @@ class UITests: messenger_appUITestsCase {
         toolbar.textViews["New Message"].tap()
         toolbar.typeText("Test message")
         toolbar.buttons["Send"].tap()
-        
     }
     
-    func testLoginFormExists() {
-        
-        XCTAssert(app.buttons["Log In"].exists)
-        XCTAssert(app.textFields["Email"].exists)
-        XCTAssert(app.textFields["Password"].exists)
-        XCTAssert(app.buttons["OK"].exists)
-    }
-    
-    func testSignUpFormExists() {
-        
-        app.buttons["Sign Up"].tap()
-        
-        XCTAssert(app.buttons["Sign Up"].exists)
-        XCTAssert(app.textFields["Email"].exists)
-        XCTAssert(app.textFields["Password"].exists)
-        XCTAssert(app.buttons["OK"].exists)
-    }
 }

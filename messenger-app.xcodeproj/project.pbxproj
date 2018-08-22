@@ -153,9 +153,9 @@
 		3BB7FABB212AF7590045BDB3 /* messenger-appUITests */ = {
 			isa = PBXGroup;
 			children = (
-				3BB7FABE212AF7590045BDB3 /* Info.plist */,
 				3BC3ADF0212D946E00DB9658 /* messenger_appUITestsCase.swift */,
 				3BC3ADF2212D94FA00DB9658 /* messenger_appUITests.swift */,
+				3BB7FABE212AF7590045BDB3 /* Info.plist */,
 			);
 			path = "messenger-appUITests";
 			sourceTree = "<group>";
