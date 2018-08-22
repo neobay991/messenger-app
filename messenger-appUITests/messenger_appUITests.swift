@@ -110,8 +110,8 @@ class messenger_appUITests: messenger_appUITestsCase {
         XCTAssert(toolbar.buttons["Send"].exists)
     }
  
-    // It checks an existing user cannot log in if they do not exter a valid password
-    func testLoginInFail() {
+    // It checks an existing user cannot log in if they exter wrong password
+    func testLoginInFailWrongPassword() {
         
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
@@ -126,7 +126,6 @@ class messenger_appUITests: messenger_appUITestsCase {
         app.buttons["OK"].tap()
         
         XCTAssert(app.buttons["OK"].exists)
-
     }
     
     func testNewUserCanPost() {
