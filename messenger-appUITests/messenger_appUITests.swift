@@ -28,7 +28,7 @@ class messenger_appUITests: messenger_appUITestsCase {
         XCTAssert(app.buttons["OK"].exists)
     }
     
-    func testSignUp() {
+    func testSignUpSuccess() {
         
         app.buttons["Sign Up"].tap()
         
@@ -48,6 +48,23 @@ class messenger_appUITests: messenger_appUITestsCase {
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
         XCTAssert(toolbar.buttons["Send"].exists)
+    }
+    
+    func testSignUpFailVariationOne() {
+        
+        app.buttons["Sign Up"].tap()
+        
+        // generate a random number to append to email address
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["OK"].tap()
+        
+        XCTAssert(app.buttons["OK"].exists)
     }
  
     func testLoginInSuccess() {
