@@ -66,8 +66,7 @@ class messenger_appUITests: messenger_appUITestsCase {
         
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
-        toolbar.typeText("Test message")
-        toolbar.buttons["Send"].tap()
+        XCTAssert(toolbar.buttons["Send"].exists)
     }
     
 }
