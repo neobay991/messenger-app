@@ -10,6 +10,7 @@ import XCTest
 
 class messenger_appUITests: messenger_appUITestsCase {
     
+    // It checks the sign up form exists
     func testSignUpFormExists() {
         
         app.buttons["Sign Up"].tap()
@@ -20,6 +21,7 @@ class messenger_appUITests: messenger_appUITestsCase {
         XCTAssert(app.buttons["OK"].exists)
     }
     
+    // It checks the login up form exists
     func testLoginFormExists() {
         
         XCTAssert(app.buttons["Log In"].exists)
@@ -27,7 +29,8 @@ class messenger_appUITests: messenger_appUITestsCase {
         XCTAssert(app.textFields["Password"].exists)
         XCTAssert(app.buttons["OK"].exists)
     }
-    
+
+    // It checks a new user can successfully sign up
     func testSignUpSuccess() {
         
         app.buttons["Sign Up"].tap()
@@ -49,7 +52,8 @@ class messenger_appUITests: messenger_appUITestsCase {
         toolbar.textViews["New Message"].tap()
         XCTAssert(toolbar.buttons["Send"].exists)
     }
-    
+ 
+    // It checks a new user cannot sign up if they do not exter an email address
     func testSignUpFailVariationOne() {
         
         app.buttons["Sign Up"].tap()
@@ -65,7 +69,8 @@ class messenger_appUITests: messenger_appUITestsCase {
         
         XCTAssert(app.buttons["OK"].exists)
     }
-    
+ 
+    // It checks a new user cannot sign up if they do not exter a password
     func testSignUpFailVariationTwo() {
         
         app.buttons["Sign Up"].tap()
@@ -85,6 +90,7 @@ class messenger_appUITests: messenger_appUITestsCase {
         XCTAssert(app.buttons["OK"].exists)
     }
  
+    // It checks an existing user can successfully log in
     func testLoginInSuccess() {
         
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
@@ -103,7 +109,8 @@ class messenger_appUITests: messenger_appUITestsCase {
         toolbar.textViews["New Message"].tap()
         XCTAssert(toolbar.buttons["Send"].exists)
     }
-    
+ 
+    // It checks an existing user cannot log in if they do not exter a valid password
     func testLoginInFail() {
         
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
