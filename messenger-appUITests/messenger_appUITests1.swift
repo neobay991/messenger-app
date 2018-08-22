@@ -58,5 +58,14 @@ class UITests: messenger_appUITestsCase {
         XCTAssert(app.textFields["Password"].exists)
         XCTAssert(app.buttons["OK"].exists)
     }
-
+    
+    func testSignUpFormExists() {
+        
+        app.buttons["Sign Up"].tap()
+        
+        XCTAssert(app.buttons["Sign Up"].exists)
+        XCTAssert(app.textFields["Email"].exists)
+        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.buttons["OK"].exists)
+    }
 }
