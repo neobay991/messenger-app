@@ -2,7 +2,7 @@
 //  messenger_appUITests1.swift
 //  messenger-appUITests
 //
-//  Created by M Jawad Khan on 22/08/2018.
+//  Created by Jay Khan on 22/08/2018.
 //  Copyright © 2018 Jay Khan. All rights reserved.
 //
 
@@ -54,7 +54,7 @@ class messenger_appUITests: messenger_appUITestsCase {
     }
  
     // It checks a new user cannot sign up if they do not exter an email address
-    func testSignUpFailVariationOne() {
+    func testSignUpFailEmailAddressMissing() {
         
         app.buttons["Sign Up"].tap()
         
@@ -71,7 +71,7 @@ class messenger_appUITests: messenger_appUITestsCase {
     }
  
     // It checks a new user cannot sign up if they do not exter a password
-    func testSignUpFailVariationTwo() {
+    func testSignUpFailPasswordMissing() {
         
         app.buttons["Sign Up"].tap()
         
@@ -127,8 +127,9 @@ class messenger_appUITests: messenger_appUITestsCase {
         
         XCTAssert(app.buttons["OK"].exists)
     }
+    
     // It checks an existing user cannot log in if they do not an enter an email address
-    func testLoginInFailVariationOne() {
+    func testLoginInFailEmailAddressMissing() {
         
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
@@ -145,7 +146,7 @@ class messenger_appUITests: messenger_appUITestsCase {
     }
     
     // It checks an existing user cannot log in if they do not e password
-    func testLoginInFailVariationTwo() {
+    func testLoginInFailPasswordAddressMissing() {
         
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         

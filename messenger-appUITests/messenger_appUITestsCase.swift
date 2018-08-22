@@ -2,7 +2,7 @@
 //  messenger_appUITestsCase1.swift
 //  messenger-appUITests
 //
-//  Created by M Jawad Khan on 22/08/2018.
+//  Created by Jay Khan on 22/08/2018.
 //  Copyright © 2018 Jay Khan. All rights reserved.
 //
 
