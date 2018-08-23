@@ -1,5 +1,5 @@
 //
-//  messenger_appUITests1.swift
+//  messenger_appUITests.swift
 //  messenger-appUITests
 //
 //  Created by Jay Khan on 22/08/2018.
@@ -21,7 +21,7 @@ class messenger_appUITests: messenger_appUITestsCase {
         XCTAssert(app.buttons["OK"].exists)
     }
     
-    // It checks the login up form exists
+    // It checks the login form exists
     func testLoginFormExists() {
         
         XCTAssert(app.buttons["Log In"].exists)
