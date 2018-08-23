@@ -6,11 +6,15 @@
 	<dict>
 		<key>messenger-app.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>27</integer>
 		</dict>
 		<key>messenger-appTests.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>34</integer>
 		</dict>
@@ -18,6 +22,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>3BB7FA98212AF7580045BDB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3BB7FAB7212AF7590045BDB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
