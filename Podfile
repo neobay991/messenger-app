@@ -8,7 +8,7 @@ target 'messenger-app' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'JSQMessagesViewController'
-    pod 'FirebaseUI'
+
 end
 
 target 'messenger-appUITests' do
@@ -18,7 +18,7 @@ target 'messenger-appUITests' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'JSQMessagesViewController'
-    pod 'FirebaseUI'
+
 end
 
 target 'messenger-appTests' do
@@ -28,5 +28,5 @@ target 'messenger-appTests' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'JSQMessagesViewController'
-    pod 'FirebaseUI'
+
 end
