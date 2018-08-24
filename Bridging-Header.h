@@ -12,4 +12,4 @@
 
 #endif /* Bridging_Header_h */
 
-#import <JSQMessagesViewController/JSQMessages.h>
+#import "JSQMessagesViewController/JSQMessages.h"
