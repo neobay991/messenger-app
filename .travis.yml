@@ -1,0 +1,17 @@
+language: swift
+osx_image: xcode9.4.1
+env:
+  global:
+    - CC_TEST_REPORTER_ID=f97ae31ac1a4fb89d531e3bb79868c0c996dcab9087bb6b224334d2f482eb643
+before_install:
+- gem install cocoapods
+- pod repo update --silent
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  # - ./cc-test-reporter before-build 
+script:
+    - travis_wait 30 && xcodebuild clean test -workspace messenger-app.xcworkspace -scheme messenger-appTests -destination "platform=iOS Simulator,name=iPhone 8 Plus,OS=11.4" | xcpretty -c
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
