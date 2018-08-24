@@ -32,6 +32,9 @@ class ChatViewController: JSQMessagesViewController {
         
         let defaults = UserDefaults.standard
         
+        // get users firebase User UID
+        let userID = Auth.auth().currentUser!.uid
+        
         if  let id = defaults.string(forKey: "jsq_id"),
             let name = defaults.string(forKey: "jsq_name")
         {
@@ -40,7 +43,8 @@ class ChatViewController: JSQMessagesViewController {
         }
         else
         {
-            senderId = String(arc4random_uniform(999999))
+            // senderID should be users firebase User UID
+            senderId = userID
             senderDisplayName = ""
             
             defaults.set(senderId, forKey: "jsq_id")
