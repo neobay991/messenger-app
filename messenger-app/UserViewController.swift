@@ -76,6 +76,12 @@ class UserViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        if Auth.auth().currentUser != nil {
+//            self.performSegue(withIdentifier: "segue", sender: nil)
+//        }
+//    }
     
 }
 

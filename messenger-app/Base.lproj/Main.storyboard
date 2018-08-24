@@ -26,7 +26,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cg-4Y-X9p">
-                                <rect key="frame" x="210" y="243" width="30" height="30"/>
+                                <rect key="frame" x="167" y="245" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="OK"/>
                                 <connections>
@@ -67,14 +67,7 @@
         <!--Chat View Controller-->
         <scene sceneID="W4k-hL-Pks">
             <objects>
-                <viewController id="Efc-eV-oIe" customClass="ChatViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f70-tE-bIj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="KgJ-EA-Dsy"/>
-                    </view>
-                </viewController>
+                <viewController id="Efc-eV-oIe" customClass="ChatViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uv-R3-rEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="822" y="33"/>
