@@ -7,3 +7,11 @@
 //
 
 import Foundation
+import Firebase
+
+class MockAuth : Auth {
+    override func signIn(withEmail email: String, link: String, completion: AuthDataResultCallback? = nil) {
+        return ()
+    }
+    
+}

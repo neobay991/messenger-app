@@ -11,18 +11,22 @@ import Firebase
 
 class UserViewController: UIViewController {
     
-    
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
     @IBAction func action(_ sender: UIButton) {
-        if emailText.text != ""  && passwordText.text != ""
+        self.authenticate(email: emailText.text!, password: passwordText.text!, segment: segmentControl.selectedSegmentIndex, database: Auth.auth())
+    }
+    
+    func authenticate(email: String, password: String, segment: Int,  database: AnyObject)
+    {
+        if email != ""  && password != ""
         {
-            if segmentControl.selectedSegmentIndex == 0
+            if segment == 0
             {
-                Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!, completion: { ( user, error) in
+                database.signIn(withEmail: email, password: password, completion: { ( user, error) in
                     if user != nil
                     {
                         self.performSegue(withIdentifier: "segue", sender: self)
@@ -35,13 +39,14 @@ class UserViewController: UIViewController {
                         }
                         else
                         {
-                            print("ERROR")                        }
+                            print("ERROR")
+                        }
                     }
                 })
             }
             else
             {
-                Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!, completion: { (user, error) in
+                database.createUser(withEmail: emailText.text!, password: passwordText.text!, completion: { (user, error) in
                     if user != nil
                     {
                         self.performSegue(withIdentifier: "segue", sender: self)
@@ -61,7 +66,6 @@ class UserViewController: UIViewController {
             }
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
