@@ -11,86 +11,42 @@ import Firebase
 
 class UserViewController: UIViewController {
     
-    @IBOutlet weak var userNameText: UITextField!
+    var database = Auth.auth()
+    
+    @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
-    @IBOutlet weak var actionButton: UIButton!
-    @IBOutlet weak var segmentControl: UISegmentedControl!
-    
-    
-    @IBAction func action(_ sender: UIButton) {
-        self.authenticate(email: emailText.text!, password: passwordText.text!, segment: segmentControl.selectedSegmentIndex, database: Auth.auth())
-    }
-    
-    func authenticate(email: String, password: String, segment: Int,  database: AnyObject)
-    {
-        if email != ""  && password != ""
-        {
-            if segment == 0
-            {
-                database.signIn(withEmail: email, password: password, completion: { ( user, error) in
-                    if user != nil
-                    {
-                        self.performSegue(withIdentifier: "segue", sender: self)
-                    }
-                    else
-                    {
-                        if let myError = error?.localizedDescription
-                        {
-                            print(myError)
-                        }
-                        else
-                        {
-                            print("ERROR")
-                        }
-                    }
-                })
-            }
-            else
-            {
-                database.createUser(withEmail: emailText.text!, password: passwordText.text!, completion: { (user, error) in
-                    if user != nil
-                    {
-                        let changeRequest = database.currentUser!?.createProfileChangeRequest()
-                        changeRequest?.displayName = self.userNameText.text!
-                        changeRequest?.commitChanges { (error) in
-                            if error != nil {
-                                print(error!)
-                            }
-                        }
-                        self.performSegue(withIdentifier: "segue", sender: self)
-                    }
-                    else
-                    {
-                        if let myError = error?.localizedDescription
-                        {
-                            print(myError)
-                        }
-                        else
-                        {
-                            print("ERROR")
-                        }
-                    }
-                })
-            }
-        }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        if Auth.auth().currentUser != nil {
-//            self.performSegue(withIdentifier: "segue", sender: nil)
-//        }
-//    }
-    
-}
 
+    @IBAction func logIn(_ sender: UIButton) {
+        let email = emailText.text!
+        let password = passwordText.text!
+        database.signIn(withEmail: email, password: password, completion: { ( user, error) in
+            if user != nil {
+                self.performSegue(withIdentifier: "log in successful", sender: self)
+            }
+            else {
+                print(error?.localizedDescription ?? "Failed to log in")
+            }
+        })
+    }
+    
+    @IBAction func signUp(_ sender: UIButton) {
+        let username = usernameText.text!
+        let email = emailText.text!
+        let password = passwordText.text!
+        database.createUser(withEmail: email, password: password, completion: { (user, error) in
+            if user != nil {
+                let changeRequest = self.database.currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = username
+                changeRequest?.commitChanges { (error) in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    }
+                }
+                self.performSegue(withIdentifier: "sign up successful", sender: self)
+            } else {
+                print(error?.localizedDescription ?? "Failed to log in")
+            }
+        })
+    }
+}
