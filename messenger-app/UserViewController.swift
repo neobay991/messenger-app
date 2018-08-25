@@ -11,10 +11,12 @@ import Firebase
 
 class UserViewController: UIViewController {
     
+    @IBOutlet weak var userNameText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var segmentControl: UISegmentedControl!
+    
     
     @IBAction func action(_ sender: UIButton) {
         self.authenticate(email: emailText.text!, password: passwordText.text!, segment: segmentControl.selectedSegmentIndex, database: Auth.auth())
@@ -49,6 +51,13 @@ class UserViewController: UIViewController {
                 database.createUser(withEmail: emailText.text!, password: passwordText.text!, completion: { (user, error) in
                     if user != nil
                     {
+                        let changeRequest = database.currentUser!?.createProfileChangeRequest()
+                        changeRequest?.displayName = self.userNameText.text!
+                        changeRequest?.commitChanges { (error) in
+                            if error != nil {
+                                print(error!)
+                            }
+                        }
                         self.performSegue(withIdentifier: "segue", sender: self)
                     }
                     else

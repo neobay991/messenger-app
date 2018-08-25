@@ -177,7 +177,7 @@ class ChatViewController: JSQMessagesViewController {
     {
         let ref = Constants.refs.databaseChats.childByAutoId()
         
-        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
+        let message = ["sender_id": senderId, "name": Auth.auth().currentUser!.displayName, "text": text]
         
         ref.setValue(message)
         
