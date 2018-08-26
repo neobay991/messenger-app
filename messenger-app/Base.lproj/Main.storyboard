@@ -31,7 +31,7 @@
                                 <state key="normal" title="OK"/>
                                 <connections>
                                     <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jsp-Co-k8c"/>
-                                    <segue destination="Lqq-5x-2Fc" kind="show" id="lBG-UL-6co"/>
+                                    <segue destination="Lqq-5x-2Fc" kind="show" identifier="segue" id="lBG-UL-6co"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B3C-9H-o5E">
@@ -85,7 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Channel 1"/>
                                 <connections>
-                                    <segue destination="Efc-eV-oIe" kind="show" id="Nej-7J-6JQ"/>
+                                    <segue destination="Efc-eV-oIe" kind="show" identifier="segue_channel" id="Nej-7J-6JQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcH-2m-wVQ">
@@ -93,7 +93,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Channel 2"/>
                                 <connections>
-                                    <segue destination="Efc-eV-oIe" kind="show" id="4OZ-BN-3sS"/>
+                                    <segue destination="Efc-eV-oIe" kind="show" identifier="segue_channel" id="4OZ-BN-3sS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-nO-TMS">
@@ -101,7 +101,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Channel 3"/>
                                 <connections>
-                                    <segue destination="Efc-eV-oIe" kind="show" id="w6g-T1-vh0"/>
+                                    <segue destination="Efc-eV-oIe" kind="show" identifier="segue_channel" id="w6g-T1-vh0"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a channel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33M-Ei-Qio">
