@@ -31,6 +31,7 @@
                                 <state key="normal" title="OK"/>
                                 <connections>
                                     <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jsp-Co-k8c"/>
+                                    <segue destination="Lqq-5x-2Fc" kind="show" id="lBG-UL-6co"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B3C-9H-o5E">
@@ -57,7 +58,6 @@
                         <outlet property="emailText" destination="uVA-Ko-Ill" id="C4L-MM-i96"/>
                         <outlet property="passwordText" destination="BQ3-jE-NNq" id="LXZ-IH-udC"/>
                         <outlet property="segmentControl" destination="B3C-9H-o5E" id="Gqm-YP-15R"/>
-                        <segue destination="Efc-eV-oIe" kind="show" identifier="segue" id="vUd-TP-X9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -70,7 +70,58 @@
                 <viewController id="Efc-eV-oIe" customClass="ChatViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uv-R3-rEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="822" y="33"/>
+            <point key="canvasLocation" x="1719" y="33"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2bC-BG-DXi">
+            <objects>
+                <viewController id="Lqq-5x-2Fc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KJT-c2-ads">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Pb-vg-gR8">
+                                <rect key="frame" x="37" y="103" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Channel 1"/>
+                                <connections>
+                                    <segue destination="Efc-eV-oIe" kind="show" id="Nej-7J-6JQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcH-2m-wVQ">
+                                <rect key="frame" x="38" y="152" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Channel 2"/>
+                                <connections>
+                                    <segue destination="Efc-eV-oIe" kind="show" id="4OZ-BN-3sS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-nO-TMS">
+                                <rect key="frame" x="37" y="197" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Channel 3"/>
+                                <connections>
+                                    <segue destination="Efc-eV-oIe" kind="show" id="w6g-T1-vh0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select a channel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33M-Ei-Qio">
+                                <rect key="frame" x="124" y="57" width="126" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="pVX-A2-15i"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ESj-rd-WhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="857" y="33"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="w6g-T1-vh0"/>
+    </inferredMetricsTieBreakers>
 </document>
