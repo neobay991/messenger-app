@@ -14,6 +14,8 @@ class ChatViewController: JSQMessagesViewController {
 
     var messages = [JSQMessage]()
     let channel2 = "test channel1"
+    
+    var myString = String()
 
     var handle: AuthStateDidChangeListenerHandle?
 
@@ -29,7 +31,9 @@ class ChatViewController: JSQMessagesViewController {
         super.viewDidLoad()
 
         let defaults = UserDefaults.standard
-
+        
+        print(myString)
+        
         // get users firebase User UID
         let userID = Auth.auth().currentUser!.uid
 
