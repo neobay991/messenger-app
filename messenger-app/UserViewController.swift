@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 
 class UserViewController: UIViewController {
-
+    
+    @IBOutlet weak var usernameText: UITextField!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var actionButton: UIButton!
