@@ -34,7 +34,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jsp-Co-k8c"/>
+                                    <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0VR-ZS-rrT"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uVA-Ko-Ill">
@@ -72,10 +72,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="actionButton" destination="5Cg-4Y-X9p" id="iVd-vc-PZA"/>
                         <outlet property="emailText" destination="uVA-Ko-Ill" id="C4L-MM-i96"/>
                         <outlet property="passwordText" destination="BQ3-jE-NNq" id="LXZ-IH-udC"/>
-                        <segue destination="Efc-eV-oIe" kind="show" identifier="segue" id="vUd-TP-X9h"/>
+                        <segue destination="Efc-eV-oIe" kind="show" identifier="Log in successful" id="vUd-TP-X9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -125,6 +124,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="signUp:" destination="shA-KI-Hmz" eventType="touchUpInside" id="kbn-be-yed"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrB-4K-xBa">
                                 <rect key="frame" x="102" y="421" width="135" height="14"/>
@@ -150,6 +152,7 @@
                         <outlet property="emailText" destination="Ic1-Nb-7Dp" id="gjw-SN-8Xe"/>
                         <outlet property="passwordText" destination="RtX-Z2-Lfq" id="KZL-fk-gUy"/>
                         <outlet property="usernameText" destination="xEf-0N-Yif" id="ElC-Pb-c0O"/>
+                        <segue destination="Efc-eV-oIe" kind="show" identifier="Sign up successful" id="aSP-zc-9Ln"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsj-Gp-b2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,4 +168,7 @@
             <point key="canvasLocation" x="823" y="33"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aSP-zc-9Ln"/>
+    </inferredMetricsTieBreakers>
 </document>
