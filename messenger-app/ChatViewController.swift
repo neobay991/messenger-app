@@ -13,8 +13,8 @@ import Firebase
 class ChatViewController: JSQMessagesViewController {
 
     var messages = [JSQMessage]()
-    let channel2 = "test channel1"
     
+    // this var is required to initially store the channel string the user selects
     var myString = String()
 
     var handle: AuthStateDidChangeListenerHandle?
@@ -32,17 +32,18 @@ class ChatViewController: JSQMessagesViewController {
 
         let defaults = UserDefaults.standard
         
-        print(myString)
-        
         // get users firebase User UID
         let userID = Auth.auth().currentUser!.uid
+        
+        // set selected channel to a constant
+        let selectedChannel = myString
 
         if  let id = defaults.string(forKey: "jsq_id"),
             let name = defaults.string(forKey: "jsq_name") {
 
             senderId = id
             senderDisplayName = name
-
+            
         } else {
 
             // senderID should be users firebase User UID
@@ -51,6 +52,10 @@ class ChatViewController: JSQMessagesViewController {
 
             defaults.set(senderId, forKey: "jsq_id")
             defaults.synchronize()
+            
+            // to help debug we can print the channel to console
+            print(myString)
+            print(selectedChannel)
         }
 
         inputToolbar.contentView.leftBarButtonItem = nil
@@ -68,24 +73,11 @@ class ChatViewController: JSQMessagesViewController {
                 let channel     = data["channel"],
                 !text.isEmpty {
                 
-//                if channel == "test channel" {
-//
-//                    if let message = JSQMessage(senderId: id, displayName: name, text: text), channel == "test channel" {
-//
-//                        self?.messages.append(message)
-//
-//                        self?.finishReceivingMessage()
-//                    }
-//                }
-                
-                if channel == "test channel1" {
+                if let message = JSQMessage(senderId: id, displayName: name, text: text) , channel == selectedChannel {
 
-                    if let message = JSQMessage(senderId: id, displayName: name, text: text), channel == "test channel1" {
+                    self?.messages.append(message)
 
-                        self?.messages.append(message)
-
-                        self?.finishReceivingMessage()
-                    }
+                    self?.finishReceivingMessage()
                 }
             }
         })
@@ -123,7 +115,7 @@ class ChatViewController: JSQMessagesViewController {
 
         let ref = Constants.Refs.databaseChats.childByAutoId()
 
-        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text, "channel": channel2]
+        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text, "channel": myString]
 
         ref.setValue(message)
 

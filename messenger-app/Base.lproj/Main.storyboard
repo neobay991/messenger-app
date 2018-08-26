@@ -87,19 +87,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="aaaaa" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gVX-w9-pZl">
-                                <rect key="frame" x="24" y="118" width="105" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDu-Cn-sBr">
+                                <rect key="frame" x="38" y="101" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAa-QH-k0j">
-                                <rect key="frame" x="134" y="279" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go"/>
+                                <accessibility key="accessibilityConfiguration" label="access3"/>
+                                <state key="normal" title="Channel 1"/>
                                 <connections>
-                                    <action selector="b1:" destination="Lqq-5x-2Fc" eventType="touchUpInside" id="bJH-e5-qaT"/>
+                                    <action selector="actionButtonChannel1:" destination="Lqq-5x-2Fc" eventType="touchUpInside" id="jL0-lx-i01"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aE5-rj-Bfi">
+                                <rect key="frame" x="38" y="150" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Channel 2"/>
+                                <connections>
+                                    <action selector="actionButtonChannel2:" destination="Lqq-5x-2Fc" eventType="touchUpInside" id="S2M-MA-KB7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4d-Bl-hpY">
+                                <rect key="frame" x="38" y="199" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Channel 3"/>
+                                <connections>
+                                    <action selector="actionButtonChannel3:" destination="Lqq-5x-2Fc" eventType="touchUpInside" id="KSL-9U-eC6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -107,7 +117,9 @@
                         <viewLayoutGuide key="safeArea" id="pVX-A2-15i"/>
                     </view>
                     <connections>
-                        <outlet property="t1" destination="gVX-w9-pZl" id="0PT-hW-G1m"/>
+                        <outlet property="channelButton1" destination="hDu-Cn-sBr" id="r3S-wF-mGK"/>
+                        <outlet property="channelButton2" destination="aE5-rj-Bfi" id="zdK-AU-Nd7"/>
+                        <outlet property="channelButton3" destination="N4d-Bl-hpY" id="rOd-x1-0sq"/>
                         <segue destination="Efc-eV-oIe" kind="show" identifier="segueChannel" id="6n5-od-nHa"/>
                     </connections>
                 </viewController>

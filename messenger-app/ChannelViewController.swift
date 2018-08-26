@@ -10,26 +10,48 @@ import UIKit
 
 class ChannelViewController: UIViewController {
 
-    @IBOutlet weak var t1: UITextField!
+    @IBOutlet weak var channelButton1: UIButton!
+    @IBOutlet weak var channelButton2: UIButton!
+    @IBOutlet weak var channelButton3: UIButton!
+    
+    @IBAction func actionButtonChannel1(_ sender: UIButton) {
+        if channelButton1.currentTitle != nil {
+            performSegue(withIdentifier: "segueChannel", sender: self)
+        }
+    }
     
 
-    @IBAction func b1(_ sender: UIButton) {
-        if t1.text != nil {
+    @IBAction func actionButtonChannel2(_ sender: UIButton) {
+        if channelButton2.currentTitle != nil {
+            performSegue(withIdentifier: "segueChannel", sender: self)
+        }
+    }
+    
+    @IBAction func actionButtonChannel3(_ sender: UIButton) {
+        if channelButton3.currentTitle != nil {
             performSegue(withIdentifier: "segueChannel", sender: self)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
         var chatViewController = segue.destination as! ChatViewController
-        chatViewController.myString = t1.text!
-    
+        if channelButton1.isTouchInside {
+            chatViewController.myString = channelButton1.currentTitle!
+            print("button 1 pressed")
+        } else if channelButton2.isTouchInside {
+            chatViewController.myString = channelButton2.currentTitle!
+            print("button 2 pressed")
+        } else if channelButton3.isTouchInside {
+            chatViewController.myString = channelButton3.currentTitle!
+            print("button 3 pressed")
+        }
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(t1.text)
-        
     }
     
 
