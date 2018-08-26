@@ -93,7 +93,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         XCTAssert(app.buttons["OK"].exists)
     }
 
-    // It checks a new user cannot sign up if they do not exter a password
+    // It checks a new user cannot sign up if they do not enter a password
     func testSignUpFailPasswordMissing() {
 
         app.buttons["Sign Up"].tap()
