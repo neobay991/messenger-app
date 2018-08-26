@@ -29,6 +29,26 @@ class messengerAppUITests: messengerAppUITestsCase {
         XCTAssert(app.textFields["Password"].exists)
         XCTAssert(app.buttons["OK"].exists)
     }
+    
+    // It checks the list of channels exists
+    func testChannelListExists() {
+        
+        app.buttons["Log In"].tap()
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("test@test.com")
+        
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["OK"].tap()
+        
+        XCTAssert(app.buttons["Channel 1"].exists)
+        XCTAssert(app.buttons["Channel 2"].exists)
+        XCTAssert(app.buttons["Channel 3"].exists)
+    }
 
     // It checks a new user can successfully sign up
     func testSignUpSuccess() {
@@ -47,13 +67,16 @@ class messengerAppUITests: messengerAppUITestsCase {
         passwordTextField.typeText("password")
 
         app.buttons["OK"].tap()
+        
+        // this is a channel button
+        XCTAssert(app.buttons["Channel 1"].exists)
 
-        let toolbar = app.toolbars["Toolbar"]
-        toolbar.textViews["New Message"].tap()
-        XCTAssert(toolbar.buttons["Send"].exists)
+//        let toolbar = app.toolbars["Toolbar"]
+//        toolbar.textViews["New Message"].tap()
+//        XCTAssert(toolbar.buttons["Send"].exists)
     }
 
-    // It checks a new user cannot sign up if they do not exter an email address
+    // It checks a new user cannot sign up if they do not enter an email address
     func testSignUpFailEmailAddressMissing() {
 
         app.buttons["Sign Up"].tap()
@@ -104,10 +127,13 @@ class messengerAppUITests: messengerAppUITestsCase {
         passwordTextField.typeText("password")
 
         app.buttons["OK"].tap()
+        
+        // this is a channel button
+        XCTAssert(app.buttons["Channel 1"].exists)
 
-        let toolbar = app.toolbars["Toolbar"]
-        toolbar.textViews["New Message"].tap()
-        XCTAssert(toolbar.buttons["Send"].exists)
+//        let toolbar = app.toolbars["Toolbar"]
+//        toolbar.textViews["New Message"].tap()
+//        XCTAssert(toolbar.buttons["Send"].exists)
     }
 
     // It checks an existing user cannot log in if they enter wrong password
@@ -178,6 +204,9 @@ class messengerAppUITests: messengerAppUITestsCase {
         passwordTextField.typeText("password")
 
         app.buttons["OK"].tap()
+        
+        // this is a channel button
+        app.buttons["access3"].tap()
 
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
@@ -198,6 +227,9 @@ class messengerAppUITests: messengerAppUITestsCase {
         passwordTextField.typeText("password")
 
         app.buttons["OK"].tap()
+        
+        // this is a channel button
+        app.buttons["access3"].tap()
 
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()

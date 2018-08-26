@@ -90,7 +90,6 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDu-Cn-sBr">
                                 <rect key="frame" x="38" y="101" width="67" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="access3"/>
                                 <state key="normal" title="Channel 1"/>
                                 <connections>
                                     <action selector="actionButtonChannel1:" destination="Lqq-5x-2Fc" eventType="touchUpInside" id="jL0-lx-i01"/>
