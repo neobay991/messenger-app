@@ -232,5 +232,44 @@ class messengerAppUITests: messengerAppUITestsCase {
         toolbar.typeText("Test message")
         toolbar.buttons["Send"].tap()
     }
- 
+    
+    // it checks a user can post to multiple channels
+    func testUserCanPostToMiultipleChannels() {
+        
+        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("test@test.com")
+        
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["OK"].tap()
+        
+        app.buttons["Channel 1"].tap()
+        
+        let toolbar = app.toolbars["Toolbar"]
+        
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+        
+        app.navigationBars["messenger_app.ChatView"].buttons["Back"].tap()
+        
+        app.buttons["Channel 2"].tap()
+        
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+        
+        app.navigationBars["messenger_app.ChatView"].buttons["Back"].tap()
+        
+        app.buttons["Channel 3"].tap()
+        
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+    }
 }
