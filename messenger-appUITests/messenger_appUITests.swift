@@ -16,14 +16,14 @@ class messengerAppUITests: messengerAppUITestsCase {
         
         XCTAssert(app.textFields["Username"].exists)
         XCTAssert(app.textFields["Email"].exists)
-        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.secureTextFields["Password"].exists)
         XCTAssert(app.buttons["Sign up"].exists)
     }
     
     // It checks the login form exists
     func testLoginFormExists() {
         XCTAssert(app.textFields["Email"].exists)
-        XCTAssert(app.textFields["Password"].exists)
+        XCTAssert(app.secureTextFields["Password"].exists)
         XCTAssert(app.buttons["Log in"].exists)
     }
     
@@ -42,7 +42,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         emailTextField.tap()
         emailTextField.typeText(emailAdress)
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
@@ -61,7 +61,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         usernameTextField.tap()
         usernameTextField.typeText("test")
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
@@ -85,7 +85,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         emailTextField.tap()
         emailTextField.typeText(emailAdress)
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
@@ -110,7 +110,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         emailTextField.tap()
         emailTextField.typeText(emailAdress)
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         
         app.buttons["Sign up"].tap()
@@ -125,7 +125,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         emailTextField.tap()
         emailTextField.typeText("test@test.com")
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
@@ -142,7 +142,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         emailTextField.tap()
         emailTextField.typeText("test@test.com")
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         passwordTextField.typeText("wromngpassword")
         
@@ -157,7 +157,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         passwordTextField.typeText("Password")
         
@@ -173,7 +173,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         emailTextField.tap()
         emailTextField.typeText("test@test.com")
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         
         app.buttons["Log in"].tap()
@@ -196,7 +196,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         emailTextField.tap()
         emailTextField.typeText(emailAdress)
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
@@ -213,7 +213,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         emailTextField.tap()
         emailTextField.typeText("test@test.com")
         
-        let passwordTextField = app.textFields["Password"]
+        let passwordTextField = app.secureTextFields["Password"]
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
