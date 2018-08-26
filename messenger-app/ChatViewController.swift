@@ -14,8 +14,8 @@ class ChatViewController: JSQMessagesViewController {
 
     var messages = [JSQMessage]()
     
-    // this var is required to initially store the channel string the user selects
-    var myString = String()
+    // this var is required to initially store the channel the user selects
+    var channelParam = String()
 
     var handle: AuthStateDidChangeListenerHandle?
 
@@ -36,7 +36,7 @@ class ChatViewController: JSQMessagesViewController {
         let userID = Auth.auth().currentUser!.uid
         
         // set selected channel to a constant
-        let selectedChannel = myString
+        let selectedChannel = channelParam
 
         if  let id = defaults.string(forKey: "jsq_id"),
             let name = defaults.string(forKey: "jsq_name") {
@@ -54,7 +54,7 @@ class ChatViewController: JSQMessagesViewController {
             defaults.synchronize()
             
             // to help debug we can print the channel to console
-            print(myString)
+            print(channelParam)
             print(selectedChannel)
         }
 
@@ -115,7 +115,7 @@ class ChatViewController: JSQMessagesViewController {
 
         let ref = Constants.Refs.databaseChats.childByAutoId()
 
-        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text, "channel": myString]
+        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text, "channel": channelParam]
 
         ref.setValue(message)
 
