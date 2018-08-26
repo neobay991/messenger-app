@@ -232,4 +232,5 @@ class messengerAppUITests: messengerAppUITestsCase {
         toolbar.typeText("Test message")
         toolbar.buttons["Send"].tap()
     }
+ 
 }
