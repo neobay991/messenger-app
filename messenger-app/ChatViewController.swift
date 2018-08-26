@@ -13,6 +13,7 @@ import Firebase
 class ChatViewController: JSQMessagesViewController {
 
     var messages = [JSQMessage]()
+    let channel2 = "test channel1"
 
     var handle: AuthStateDidChangeListenerHandle?
 
@@ -60,13 +61,27 @@ class ChatViewController: JSQMessagesViewController {
                 let id          = data["sender_id"],
                 let name        = data["name"],
                 let text        = data["text"],
+                let channel     = data["channel"],
                 !text.isEmpty {
+                
+//                if channel == "test channel" {
+//
+//                    if let message = JSQMessage(senderId: id, displayName: name, text: text), channel == "test channel" {
+//
+//                        self?.messages.append(message)
+//
+//                        self?.finishReceivingMessage()
+//                    }
+//                }
+                
+                if channel == "test channel1" {
 
-                if let message = JSQMessage(senderId: id, displayName: name, text: text) {
+                    if let message = JSQMessage(senderId: id, displayName: name, text: text), channel == "test channel1" {
 
-                    self?.messages.append(message)
+                        self?.messages.append(message)
 
-                    self?.finishReceivingMessage()
+                        self?.finishReceivingMessage()
+                    }
                 }
             }
         })
@@ -104,7 +119,7 @@ class ChatViewController: JSQMessagesViewController {
 
         let ref = Constants.Refs.databaseChats.childByAutoId()
 
-        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text]
+        let message = ["sender_id": senderId, "name": senderDisplayName, "text": text, "channel": channel2]
 
         ref.setValue(message)
 
