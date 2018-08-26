@@ -114,7 +114,7 @@ class messengerAppUITests: messengerAppUITestsCase {
     }
 
     // It checks an existing user can successfully log in
-    func testLoginInSuccess() {
+    func testLoginInSuccess() { 
 
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
 
