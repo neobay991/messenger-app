@@ -23,17 +23,12 @@ class messenger_appTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        UserViewController().authenticate(
-            email: "cheuperman@gmail.com", password: "testing", segment: 0, database: MockAuth.auth()
-        )
+    func testLogIn() {
+        
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSignUp() {
+        
     }
     
 }

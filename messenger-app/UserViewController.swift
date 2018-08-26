@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 
 class UserViewController: UIViewController {
-    
     var database = Auth.auth()
     
     @IBOutlet weak var usernameText: UITextField!
@@ -25,7 +24,10 @@ class UserViewController: UIViewController {
                 self.performSegue(withIdentifier: "log in successful", sender: self)
             }
             else {
-                print(error?.localizedDescription ?? "Failed to log in")
+                let alertMessage = error?.localizedDescription ?? "Please enter a valid email address an password"
+                let alert = UIAlertController(title: "Failed to log in", message: alertMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
             }
         })
     }
@@ -45,7 +47,10 @@ class UserViewController: UIViewController {
                 }
                 self.performSegue(withIdentifier: "sign up successful", sender: self)
             } else {
-                print(error?.localizedDescription ?? "Failed to log in")
+                let alertMessage = error?.localizedDescription ?? "Please enter a valid email address an password"
+                let alert = UIAlertController(title: "Failed to sign up", message: alertMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
             }
         })
     }

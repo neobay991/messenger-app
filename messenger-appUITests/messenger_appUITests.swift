@@ -12,28 +12,28 @@ class messenger_appUITests: messenger_appUITestsCase {
     
     // It checks the sign up form exists
     func testSignUpFormExists() {
+        app.buttons["Sign up now"].tap()
         
-        app.buttons["Sign Up"].tap()
-        
-        XCTAssert(app.buttons["Sign Up"].exists)
+        XCTAssert(app.textFields["Username"].exists)
         XCTAssert(app.textFields["Email"].exists)
         XCTAssert(app.textFields["Password"].exists)
-        XCTAssert(app.buttons["OK"].exists)
+        XCTAssert(app.buttons["Sign up"].exists)
     }
     
     // It checks the login form exists
     func testLoginFormExists() {
-        
-        XCTAssert(app.buttons["Log In"].exists)
         XCTAssert(app.textFields["Email"].exists)
         XCTAssert(app.textFields["Password"].exists)
-        XCTAssert(app.buttons["OK"].exists)
+        XCTAssert(app.buttons["Log in"].exists)
     }
 
     // It checks a new user can successfully sign up
     func testSignUpSuccess() {
+        app.buttons["Sign up now"].tap()
         
-        app.buttons["Sign Up"].tap()
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("test")
         
         // generate a random number to append to email address
         let randomNumber = arc4random()
@@ -46,34 +46,62 @@ class messenger_appUITests: messenger_appUITestsCase {
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
-        app.buttons["OK"].tap()
+        app.buttons["Sign up"].tap()
         
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
         XCTAssert(toolbar.buttons["Send"].exists)
     }
  
-    // It checks a new user cannot sign up if they do not exter an email address
+    // It checks a new user cannot sign up if they do not enter an email address
     func testSignUpFailEmailAddressMissing() {
+        app.buttons["Sign up now"].tap()
         
-        app.buttons["Sign Up"].tap()
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("test")
+
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
         
+        app.buttons["Sign up"].tap()
+        
+        XCTAssertEqual(app.alerts.element.label, "Failed to sign up")
+        XCTAssert(app.alerts.buttons["OK"].exists)
+    }
+    
+    // It checks a new user cannot sign up if they enter an invalid email address
+    func testSignUpFailEmailAddressInvalid() {
+        app.buttons["Sign up now"].tap()
+        
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("test")
+        
+        let randomNumber = arc4random()
+        let emailAdress = "test\(randomNumber)@test"
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
+        emailTextField.typeText(emailAdress)
         
         let passwordTextField = app.textFields["Password"]
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
-        app.buttons["OK"].tap()
+        app.buttons["Sign up"].tap()
         
-        XCTAssert(app.buttons["OK"].exists)
+        XCTAssertEqual(app.alerts.element.label, "Failed to sign up")
+        XCTAssert(app.alerts.buttons["OK"].exists)
     }
  
     // It checks a new user cannot sign up if they do not exter a password
     func testSignUpFailPasswordMissing() {
+        app.buttons["Sign up now"].tap()
         
-        app.buttons["Sign Up"].tap()
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("test")
         
         // generate a random number to append to email address
         let randomNumber = arc4random()
@@ -85,16 +113,14 @@ class messenger_appUITests: messenger_appUITestsCase {
         let passwordTextField = app.textFields["Password"]
         passwordTextField.tap()
         
-        app.buttons["OK"].tap()
+        app.buttons["Sign up"].tap()
         
-        XCTAssert(app.buttons["OK"].exists)
+        XCTAssertEqual(app.alerts.element.label, "Failed to sign up")
+        XCTAssert(app.alerts.buttons["OK"].exists)
     }
  
     // It checks an existing user can successfully log in
     func testLoginInSuccess() {
-        
-        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
         emailTextField.typeText("test@test.com")
@@ -103,7 +129,7 @@ class messenger_appUITests: messenger_appUITestsCase {
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
-        app.buttons["OK"].tap()
+        app.buttons["Log in"].tap()
         
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
@@ -112,9 +138,6 @@ class messenger_appUITests: messenger_appUITestsCase {
  
     // It checks an existing user cannot log in if they enter wrong password
     func testLoginInFailWrongPassword() {
-        
-        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
         emailTextField.typeText("test@test.com")
@@ -123,33 +146,29 @@ class messenger_appUITests: messenger_appUITestsCase {
         passwordTextField.tap()
         passwordTextField.typeText("wromngpassword")
         
-        app.buttons["OK"].tap()
+        app.buttons["Log in"].tap()
         
-        XCTAssert(app.buttons["OK"].exists)
+        XCTAssertEqual(app.alerts.element.label, "Failed to log in")
+        XCTAssert(app.alerts.buttons["OK"].exists)
     }
     
     // It checks an existing user cannot log in if they do not an enter an email address
     func testLoginInFailEmailAddressMissing() {
-        
-        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
         
         let passwordTextField = app.textFields["Password"]
         passwordTextField.tap()
-        passwordTextField.typeText("wromngpassword")
+        passwordTextField.typeText("Password")
         
-        app.buttons["OK"].tap()
+        app.buttons["Log in"].tap()
         
-        XCTAssert(app.buttons["OK"].exists)
+        XCTAssertEqual(app.alerts.element.label, "Failed to log in")
+        XCTAssert(app.alerts.buttons["OK"].exists)
     }
     
-    // It checks an existing user cannot log in if they do not e password
+    // It checks an existing user cannot log in if they do not enter a password
     func testLoginInFailPasswordAddressMissing() {
-        
-        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
         emailTextField.typeText("test@test.com")
@@ -157,14 +176,18 @@ class messenger_appUITests: messenger_appUITestsCase {
         let passwordTextField = app.textFields["Password"]
         passwordTextField.tap()
         
-        app.buttons["OK"].tap()
+        app.buttons["Log in"].tap()
         
-        XCTAssert(app.buttons["OK"].exists)
+        XCTAssertEqual(app.alerts.element.label, "Failed to log in")
+        XCTAssert(app.alerts.buttons["OK"].exists)
     }
     
     func testNewUserCanPost() {
+        app.buttons["Sign up now"].tap()
         
-        app.buttons["Sign Up"].tap()
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("test")
         
         // generate a random number to append to email address
         let randomNumber = arc4random()
@@ -177,18 +200,15 @@ class messenger_appUITests: messenger_appUITestsCase {
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
-        app.buttons["OK"].tap()
+        app.buttons["Sign up"].tap()
         
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
-        toolbar.typeText("Test message")
+        toolbar.typeText("Test message, now with name")
         toolbar.buttons["Send"].tap()
     }
     
     func testExistingUserCanPost() {
-        
-        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
         emailTextField.typeText("test@test.com")
@@ -197,7 +217,7 @@ class messenger_appUITests: messenger_appUITestsCase {
         passwordTextField.tap()
         passwordTextField.typeText("password")
         
-        app.buttons["OK"].tap()
+        app.buttons["Log in"].tap()
         
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
