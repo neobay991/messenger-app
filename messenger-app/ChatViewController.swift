@@ -73,6 +73,7 @@ class ChatViewController: JSQMessagesViewController {
                 let channel     = data["channel"],
                 !text.isEmpty {
                 
+                // Include where to filter messages by channel
                 if let message = JSQMessage(senderId: id, displayName: name, text: text) , channel == selectedChannel {
 
                     self?.messages.append(message)
