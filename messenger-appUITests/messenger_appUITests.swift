@@ -45,9 +45,8 @@ class messengerAppUITests: messengerAppUITestsCase {
         
         app.buttons["OK"].tap()
         
-        XCTAssert(app.buttons["Channel 1"].exists)
-        XCTAssert(app.buttons["Channel 2"].exists)
-        XCTAssert(app.buttons["Channel 3"].exists)
+        app.buttons["Channel 1"].tap()
+
     }
 
     // It checks a new user can successfully sign up
@@ -67,13 +66,8 @@ class messengerAppUITests: messengerAppUITestsCase {
         passwordTextField.typeText("password")
 
         app.buttons["OK"].tap()
-        
-        // this is a channel button
-        XCTAssert(app.buttons["Channel 1"].exists)
-
-//        let toolbar = app.toolbars["Toolbar"]
-//        toolbar.textViews["New Message"].tap()
-//        XCTAssert(toolbar.buttons["Send"].exists)
+    
+        app.buttons["Channel 1"].tap()
     }
 
     // It checks a new user cannot sign up if they do not enter an email address
@@ -114,7 +108,7 @@ class messengerAppUITests: messengerAppUITestsCase {
     }
 
     // It checks an existing user can successfully log in
-    func testLoginInSuccess() { 
+    func testLoginInSuccess() {
 
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
 
@@ -129,11 +123,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         app.buttons["OK"].tap()
         
         // this is a channel button
-        XCTAssert(app.buttons["Channel 1"].exists)
-
-//        let toolbar = app.toolbars["Toolbar"]
-//        toolbar.textViews["New Message"].tap()
-//        XCTAssert(toolbar.buttons["Send"].exists)
+        app.buttons["Channel 1"].tap()
     }
 
     // It checks an existing user cannot log in if they enter wrong password
@@ -205,7 +195,6 @@ class messengerAppUITests: messengerAppUITestsCase {
 
         app.buttons["OK"].tap()
         
-        // this is a channel button
         app.buttons["Channel 1"].tap()
 
         let toolbar = app.toolbars["Toolbar"]
@@ -228,7 +217,6 @@ class messengerAppUITests: messengerAppUITestsCase {
 
         app.buttons["OK"].tap()
         
-        // this is a channel button
         app.buttons["Channel 1"].tap()
 
         let toolbar = app.toolbars["Toolbar"]

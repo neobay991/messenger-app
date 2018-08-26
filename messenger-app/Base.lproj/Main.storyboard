@@ -31,7 +31,6 @@
                                 <state key="normal" title="OK"/>
                                 <connections>
                                     <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jsp-Co-k8c"/>
-                                    <segue destination="Lqq-5x-2Fc" kind="show" identifier="segue" id="lBG-UL-6co"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B3C-9H-o5E">
@@ -58,6 +57,7 @@
                         <outlet property="emailText" destination="uVA-Ko-Ill" id="C4L-MM-i96"/>
                         <outlet property="passwordText" destination="BQ3-jE-NNq" id="LXZ-IH-udC"/>
                         <outlet property="segmentControl" destination="B3C-9H-o5E" id="Gqm-YP-15R"/>
+                        <segue destination="Lqq-5x-2Fc" kind="show" identifier="segue" id="4ls-0o-szw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
