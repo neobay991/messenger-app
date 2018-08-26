@@ -29,6 +29,30 @@ class messengerAppUITests: messengerAppUITestsCase {
         XCTAssert(app.textFields["Password"].exists)
         XCTAssert(app.buttons["OK"].exists)
     }
+    
+    // It checks the list of channels exists
+    func testChannelListExists() {
+        
+        app.buttons["Log In"].tap()
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("test@test.com")
+        
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["OK"].tap()
+        
+        waitForElementToAppear(app.buttons["Channel 1"])
+        waitForElementToAppear(app.buttons["Channel 2"])
+        waitForElementToAppear(app.buttons["Channel 3"])
+        
+        XCTAssert(app.buttons["Channel 1"].exists)
+        XCTAssert(app.buttons["Channel 2"].exists)
+        XCTAssert(app.buttons["Channel 3"].exists)
+    }
 
     // It checks a new user can successfully sign up
     func testSignUpSuccess() {
@@ -47,13 +71,12 @@ class messengerAppUITests: messengerAppUITestsCase {
         passwordTextField.typeText("password")
 
         app.buttons["OK"].tap()
-
-        let toolbar = app.toolbars["Toolbar"]
-        toolbar.textViews["New Message"].tap()
-        XCTAssert(toolbar.buttons["Send"].exists)
+    
+        waitForElementToAppear(app.buttons["Channel 1"])
+        XCTAssert(app.buttons["Channel 1"].exists)
     }
 
-    // It checks a new user cannot sign up if they do not exter an email address
+    // It checks a new user cannot sign up if they do not enter an email address
     func testSignUpFailEmailAddressMissing() {
 
         app.buttons["Sign Up"].tap()
@@ -70,7 +93,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         XCTAssert(app.buttons["OK"].exists)
     }
 
-    // It checks a new user cannot sign up if they do not exter a password
+    // It checks a new user cannot sign up if they do not enter a password
     func testSignUpFailPasswordMissing() {
 
         app.buttons["Sign Up"].tap()
@@ -104,10 +127,9 @@ class messengerAppUITests: messengerAppUITestsCase {
         passwordTextField.typeText("password")
 
         app.buttons["OK"].tap()
-
-        let toolbar = app.toolbars["Toolbar"]
-        toolbar.textViews["New Message"].tap()
-        XCTAssert(toolbar.buttons["Send"].exists)
+        
+        waitForElementToAppear(app.buttons["Channel 1"])
+        XCTAssert(app.buttons["Channel 1"].exists)
     }
 
     // It checks an existing user cannot log in if they enter wrong password
@@ -161,7 +183,8 @@ class messengerAppUITests: messengerAppUITestsCase {
 
         XCTAssert(app.buttons["OK"].exists)
     }
-
+    
+    // it checks a new user can post
     func testNewUserCanPost() {
 
         app.buttons["Sign Up"].tap()
@@ -178,13 +201,16 @@ class messengerAppUITests: messengerAppUITestsCase {
         passwordTextField.typeText("password")
 
         app.buttons["OK"].tap()
+        
+        app.buttons["Channel 1"].tap()
 
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
         toolbar.typeText("Test message")
         toolbar.buttons["Send"].tap()
     }
-
+    
+    // it checks an existing user can post
     func testExistingUserCanPost() {
 
         app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
@@ -198,8 +224,50 @@ class messengerAppUITests: messengerAppUITestsCase {
         passwordTextField.typeText("password")
 
         app.buttons["OK"].tap()
+        
+        app.buttons["Channel 1"].tap()
 
         let toolbar = app.toolbars["Toolbar"]
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+    }
+    
+    // it checks a user can post to multiple channels
+    func testUserCanPostToMiultipleChannels() {
+        
+        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("test@test.com")
+        
+        let passwordTextField = app.textFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["OK"].tap()
+        
+        app.buttons["Channel 1"].tap()
+        
+        let toolbar = app.toolbars["Toolbar"]
+        
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+        
+        app.navigationBars["messenger_app.ChatView"].buttons["Back"].tap()
+        
+        app.buttons["Channel 2"].tap()
+        
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+        
+        app.navigationBars["messenger_app.ChatView"].buttons["Back"].tap()
+        
+        app.buttons["Channel 3"].tap()
+        
         toolbar.textViews["New Message"].tap()
         toolbar.typeText("Test message")
         toolbar.buttons["Send"].tap()
