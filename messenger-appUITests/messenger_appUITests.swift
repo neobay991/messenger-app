@@ -206,7 +206,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         app.buttons["OK"].tap()
         
         // this is a channel button
-        app.buttons["access3"].tap()
+        app.buttons["Channel 1"].tap()
 
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
@@ -229,7 +229,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         app.buttons["OK"].tap()
         
         // this is a channel button
-        app.buttons["access3"].tap()
+        app.buttons["Channel 1"].tap()
 
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
