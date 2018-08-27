@@ -206,6 +206,7 @@
                         <outlet property="channelButton1" destination="fe1-D9-0gN" id="ZZp-04-t3f"/>
                         <outlet property="channelButton2" destination="Kpu-YG-XUm" id="xgZ-Nm-nA2"/>
                         <outlet property="channelButton3" destination="Wa3-4k-Cfa" id="DSe-ux-D0H"/>
+                        <segue destination="Efc-eV-oIe" kind="show" identifier="segueChannel" id="Qc8-EP-lDq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUa-oT-ewR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,7 +219,7 @@
                 <viewController id="Efc-eV-oIe" customClass="ChatViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uv-R3-rEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1326" y="33"/>
+            <point key="canvasLocation" x="1559" y="32"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
