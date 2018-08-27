@@ -52,13 +52,17 @@ class ChatViewController: JSQMessagesViewController {
 
             defaults.set(senderId, forKey: "jsq_id")
             defaults.synchronize()
+            
+            // to help debug we can print the channel to console
+            print(channelParam)
+            print(selectedChannel)
         }
 
         inputToolbar.contentView.leftBarButtonItem = nil
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
 
-        let query = Constants.Refs.databaseChats.queryLimited(toLast: 20)
+        let query = Constants.Refs.databaseChats.queryLimited(toLast: 100)
 
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
 
