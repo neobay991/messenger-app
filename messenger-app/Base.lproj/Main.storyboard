@@ -159,16 +159,69 @@
             </objects>
             <point key="canvasLocation" x="33" y="825"/>
         </scene>
+        <!--Channel View Controller-->
+        <scene sceneID="96Z-xw-x8H">
+            <objects>
+                <viewController id="VbS-d4-tpW" customClass="ChannelViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UvR-mN-oDX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fe1-D9-0gN">
+                                <rect key="frame" x="20" y="148" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Channel 1"/>
+                                <connections>
+                                    <action selector="actionButtonChannel1:" destination="VbS-d4-tpW" eventType="touchUpInside" id="bGg-1l-sJQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpu-YG-XUm">
+                                <rect key="frame" x="20" y="202" width="69" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Channel 2"/>
+                                <connections>
+                                    <action selector="actionButtonChannel2:" destination="VbS-d4-tpW" eventType="touchUpInside" id="OvD-9M-Rqy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wa3-4k-Cfa">
+                                <rect key="frame" x="20" y="263" width="70" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Channel 3"/>
+                                <connections>
+                                    <action selector="actionButtonChannel3:" destination="VbS-d4-tpW" eventType="touchUpInside" id="5HX-2T-Iy8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select your channel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQN-2p-afZ">
+                                <rect key="frame" x="95" y="88" width="151" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cxW-IC-Xnz"/>
+                    </view>
+                    <connections>
+                        <outlet property="channelButton1" destination="fe1-D9-0gN" id="ZZp-04-t3f"/>
+                        <outlet property="channelButton2" destination="Kpu-YG-XUm" id="xgZ-Nm-nA2"/>
+                        <outlet property="channelButton3" destination="Wa3-4k-Cfa" id="DSe-ux-D0H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zUa-oT-ewR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="693.60000000000002" y="-456.52173913043481"/>
+        </scene>
         <!--Chat View Controller-->
         <scene sceneID="W4k-hL-Pks">
             <objects>
                 <viewController id="Efc-eV-oIe" customClass="ChatViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uv-R3-rEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="823" y="33"/>
+            <point key="canvasLocation" x="1326" y="33"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aSP-zc-9Ln"/>
+        <segue reference="vUd-TP-X9h"/>
     </inferredMetricsTieBreakers>
 </document>
