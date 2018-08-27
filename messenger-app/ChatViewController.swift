@@ -62,7 +62,7 @@ class ChatViewController: JSQMessagesViewController {
         collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
 
-        let query = Constants.Refs.databaseChats.queryLimited(toLast: 100)
+        let query = Constants.Refs.databaseChats.queryLimited(toLast: 20)
 
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
 
