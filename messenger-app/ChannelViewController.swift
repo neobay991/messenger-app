@@ -16,12 +16,21 @@ class ChannelViewController: UIViewController {
     @IBOutlet weak var channelButton3: UIButton!
     
     @IBAction func actionButtonChannel1(_ sender: UIButton) {
+        if channelButton1.currentTitle != nil {
+            performSegue(withIdentifier: "segueChannel", sender: self)
+        }
     }
     
     @IBAction func actionButtonChannel2(_ sender: UIButton) {
+        if channelButton2.currentTitle != nil {
+            performSegue(withIdentifier: "segueChannel", sender: self)
+        }
     }
     
     @IBAction func actionButtonChannel3(_ sender: UIButton) {
+        if channelButton3.currentTitle != nil {
+            performSegue(withIdentifier: "segueChannel", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
