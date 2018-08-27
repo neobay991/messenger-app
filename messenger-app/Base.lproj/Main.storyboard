@@ -74,12 +74,12 @@
                     <connections>
                         <outlet property="emailText" destination="uVA-Ko-Ill" id="C4L-MM-i96"/>
                         <outlet property="passwordText" destination="BQ3-jE-NNq" id="LXZ-IH-udC"/>
-                        <segue destination="Efc-eV-oIe" kind="show" identifier="Log in successful" id="vUd-TP-X9h"/>
+                        <segue destination="VbS-d4-tpW" kind="show" identifier="Log in successful" id="WB4-y4-ZBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
+            <point key="canvasLocation" x="-601" y="-121"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="8WU-v7-VvD">
@@ -152,7 +152,7 @@
                         <outlet property="emailText" destination="Ic1-Nb-7Dp" id="gjw-SN-8Xe"/>
                         <outlet property="passwordText" destination="RtX-Z2-Lfq" id="KZL-fk-gUy"/>
                         <outlet property="usernameText" destination="xEf-0N-Yif" id="ElC-Pb-c0O"/>
-                        <segue destination="Efc-eV-oIe" kind="show" identifier="Sign up successful" id="aSP-zc-9Ln"/>
+                        <segue destination="VbS-d4-tpW" kind="show" identifier="Sign up successful" id="mOv-7s-G6p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsj-Gp-b2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,6 +222,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vUd-TP-X9h"/>
+        <segue reference="mOv-7s-G6p"/>
     </inferredMetricsTieBreakers>
 </document>
