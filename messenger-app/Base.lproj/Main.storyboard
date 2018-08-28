@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2z4-dS-Aij">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -72,22 +72,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Mesh"/>
                                 <connections>
-                                    <segue destination="kjH-pr-e1M" kind="show" id="hLP-4Y-3us"/>
+                                    <segue destination="kjH-pr-e1M" kind="show" id="sIq-eU-UoU"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="GPR-9K-g9x"/>
                     <connections>
                         <outlet property="emailText" destination="uVA-Ko-Ill" id="C4L-MM-i96"/>
                         <outlet property="passwordText" destination="BQ3-jE-NNq" id="LXZ-IH-udC"/>
-                        <segue destination="HMX-GL-389" kind="show" identifier="Log in successful" id="WB4-y4-ZBI"/>
+                        <segue destination="VbS-d4-tpW" kind="show" identifier="Log in successful" id="cTQ-Ie-7FO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-602.39999999999998" y="-121.88905547226388"/>
+            <point key="canvasLocation" x="-602" y="-123"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="8WU-v7-VvD">
@@ -149,7 +150,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="Log in"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="Show log in form" id="B6j-dx-fDF"/>
+                                    <segue destination="2z4-dS-Aij" kind="show" identifier="Show log in form" id="B6j-dx-fDF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -160,14 +161,14 @@
                         <outlet property="emailText" destination="Ic1-Nb-7Dp" id="gjw-SN-8Xe"/>
                         <outlet property="passwordText" destination="RtX-Z2-Lfq" id="KZL-fk-gUy"/>
                         <outlet property="usernameText" destination="xEf-0N-Yif" id="ElC-Pb-c0O"/>
-                        <segue destination="HMX-GL-389" kind="show" identifier="Sign up successful" id="mOv-7s-G6p"/>
+                        <segue destination="VbS-d4-tpW" kind="show" identifier="Sign up succcesful" id="FWR-lb-sKI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsj-Gp-b2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-602" y="677"/>
+            <point key="canvasLocation" x="-602" y="642"/>
         </scene>
-        <!--Mesh View Controller-->
+        <!--Mesh-->
         <scene sceneID="q2s-eo-KCV">
             <objects>
                 <viewController id="kjH-pr-e1M" customClass="MeshViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController">
@@ -204,13 +205,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lgb-AZ-kgN"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Mesh" id="3hP-h6-Dxl">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="CH6-o0-yWZ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageText" destination="Fzi-t6-aU9" id="L2Z-yU-ask"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4p-Gr-OJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="676.91154422788611"/>
+            <point key="canvasLocation" x="215" y="642"/>
         </scene>
         <!--Chats-->
         <scene sceneID="96Z-xw-x8H">
@@ -265,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUa-oT-ewR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1082" y="-122"/>
+            <point key="canvasLocation" x="214" y="-124"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="W4k-hL-Pks">
@@ -273,34 +277,28 @@
                 <viewController id="Efc-eV-oIe" customClass="ChatViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Uv-R3-rEp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="-122"/>
+            <point key="canvasLocation" x="1026" y="-125"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="7LF-j0-0rU">
+        <scene sceneID="nWt-jk-DYv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HMX-GL-389" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2z4-dS-Aij" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RWb-IJ-O3V">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PeU-r6-N55">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VbS-d4-tpW" kind="relationship" relationship="rootViewController" id="BMj-v7-EYe"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="G3O-TE-nBm"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qkx-sg-23y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zei-KU-cAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="228" y="-122"/>
+            <point key="canvasLocation" x="-1470" y="-122"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mOv-7s-G6p"/>
+        <segue reference="cTQ-Ie-7FO"/>
     </inferredMetricsTieBreakers>
 </document>
