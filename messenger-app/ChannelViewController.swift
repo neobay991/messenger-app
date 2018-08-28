@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 
 class ChannelViewController: UIViewController {
-
   
     @IBOutlet weak var channelButton1: UIButton!
     @IBOutlet weak var channelButton2: UIButton!
@@ -35,7 +34,7 @@ class ChannelViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var chatViewController = segue.destination as! ChatViewController
+        let chatViewController = segue.destination as! ChatViewController
         if channelButton1.isTouchInside {
             chatViewController.channelParam = channelButton1.currentTitle!
             print("button 1 pressed")
@@ -46,6 +45,20 @@ class ChannelViewController: UIViewController {
             chatViewController.channelParam = channelButton3.currentTitle!
             print("button 3 pressed")
         }
+    }
+    
+    @IBAction func createNewChannel() {
+        let alert = UIAlertController(title: "New Chat", message: "Please enter a name for this chat", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.text = "New Chat"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let channelTitle = alert!.textFields![0].text!
+            Database.database().reference().child("channels").childByAutoId().setValue(["title": channelTitle, "members": ["Kees", "Daniel", "Jay", "Yvonne"]])
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
 
     

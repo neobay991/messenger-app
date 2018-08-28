@@ -198,6 +198,14 @@
                                     <action selector="actionButtonChannel3:" destination="VbS-d4-tpW" eventType="touchUpInside" id="5HX-2T-Iy8"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWT-Pq-kq3">
+                                <rect key="frame" x="108" y="318" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New Channel"/>
+                                <connections>
+                                    <action selector="createNewChannel" destination="VbS-d4-tpW" eventType="touchUpInside" id="9oT-Ou-JqK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cxW-IC-Xnz"/>
