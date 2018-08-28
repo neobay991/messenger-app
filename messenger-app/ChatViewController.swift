@@ -37,6 +37,7 @@ class ChatViewController: JSQMessagesViewController {
         
         // set selected channel to a constant
         let selectedChannel = channelParam
+        self.title = channelParam
 
         if  let id = defaults.string(forKey: "jsq_id"),
             let name = defaults.string(forKey: "jsq_name") {
