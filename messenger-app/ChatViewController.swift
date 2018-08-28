@@ -13,6 +13,9 @@ import Firebase
 class ChatViewController: JSQMessagesViewController {
 
     var messages = [JSQMessage]()
+    
+    // this var is required to initially store the channel the user selects
+    var channelParam = String()
 
     var handle: AuthStateDidChangeListenerHandle?
 
@@ -31,6 +34,10 @@ class ChatViewController: JSQMessagesViewController {
 
         // get users firebase User UID
         let userID = Auth.auth().currentUser!.uid
+        
+        // set selected channel to a constant
+        let selectedChannel = channelParam
+        self.title = channelParam
 
         if  let id = defaults.string(forKey: "jsq_id"),
             let name = defaults.string(forKey: "jsq_name") {
@@ -46,6 +53,10 @@ class ChatViewController: JSQMessagesViewController {
 
             defaults.set(senderId, forKey: "jsq_id")
             defaults.synchronize()
+            
+            // to help debug we can print the channel to console
+            print(channelParam)
+            print(selectedChannel)
         }
 
         inputToolbar.contentView.leftBarButtonItem = nil
@@ -60,9 +71,10 @@ class ChatViewController: JSQMessagesViewController {
                 let id          = data["sender_id"],
                 let name        = data["name"],
                 let text        = data["text"],
+                let channel     = data["channel"],
                 !text.isEmpty {
 
-                if let message = JSQMessage(senderId: id, displayName: name, text: text) {
+                if let message = JSQMessage(senderId: id, displayName: name, text: text), channel == selectedChannel {
 
                     self?.messages.append(message)
 
@@ -105,7 +117,7 @@ class ChatViewController: JSQMessagesViewController {
     {
         let ref = Constants.Refs.databaseChats.childByAutoId()
         let name = Auth.auth().currentUser!.displayName
-        let message = ["sender_id": senderId, "name": name, "text": text]
+        let message = ["sender_id": senderId, "name": name, "text": text, "channel": channelParam]
         
         ref.setValue(message)
         

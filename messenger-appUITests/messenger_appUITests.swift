@@ -27,13 +27,30 @@ class messengerAppUITests: messengerAppUITestsCase {
         XCTAssert(app.buttons["Log in"].exists)
     }
     
+    // It checks the list of channels exists
+    func testChannelListExists() {
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("test@test.com")
+        
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["Log in"].tap()
+        
+        waitForElementToAppear(app.buttons["Channel 1"])
+        waitForElementToAppear(app.buttons["Channel 2"])
+        waitForElementToAppear(app.buttons["Channel 3"])
+        
+        XCTAssert(app.buttons["Channel 1"].exists)
+        XCTAssert(app.buttons["Channel 2"].exists)
+        XCTAssert(app.buttons["Channel 3"].exists)
+    }
+
     // It checks a new user can successfully sign up
     func testSignUpSuccess() {
         app.buttons["Sign up now"].tap()
-        
-        let usernameTextField = app.textFields["Username"]
-        usernameTextField.tap()
-        usernameTextField.typeText("test")
         
         // generate a random number to append to email address
         let randomNumber = arc4random()
@@ -48,9 +65,8 @@ class messengerAppUITests: messengerAppUITestsCase {
         
         app.buttons["Sign up"].tap()
         
-        let toolbar = app.toolbars["Toolbar"]
-        toolbar.textViews["New Message"].tap()
-        XCTAssert(toolbar.buttons["Send"].exists)
+        waitForElementToAppear(app.buttons["Channel 1"])
+        XCTAssert(app.buttons["Channel 1"].exists)
     }
     
     // It checks a new user cannot sign up if they do not enter an email address
@@ -131,9 +147,8 @@ class messengerAppUITests: messengerAppUITestsCase {
         
         app.buttons["Log in"].tap()
         
-        let toolbar = app.toolbars["Toolbar"]
-        toolbar.textViews["New Message"].tap()
-        XCTAssert(toolbar.buttons["Send"].exists)
+        waitForElementToAppear(app.buttons["Channel 1"])
+        XCTAssert(app.buttons["Channel 1"].exists)
     }
     
     // It checks an existing user cannot log in if they enter wrong password
@@ -202,9 +217,11 @@ class messengerAppUITests: messengerAppUITestsCase {
         
         app.buttons["Sign up"].tap()
         
+        app.buttons["Channel 1"].tap()
+        
         let toolbar = app.toolbars["Toolbar"]
         toolbar.textViews["New Message"].tap()
-        toolbar.typeText("Test message, now with name")
+        toolbar.typeText("Test message")
         toolbar.buttons["Send"].tap()
     }
     
@@ -219,7 +236,46 @@ class messengerAppUITests: messengerAppUITestsCase {
         
         app.buttons["Log in"].tap()
         
+        app.buttons["Channel 1"].tap()
+        
         let toolbar = app.toolbars["Toolbar"]
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+    }
+    
+    // it checks a user can post to multiple channels
+    func testUserCanPostToMiultipleChannels() {
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText("test@test.com")
+        
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        passwordTextField.typeText("password")
+        
+        app.buttons["Log in"].tap()
+        
+        app.buttons["Channel 1"].tap()
+        
+        let toolbar = app.toolbars["Toolbar"]
+        
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+        
+        app.navigationBars["messenger_app.ChatView"].buttons["Back"].tap()
+        
+        app.buttons["Channel 2"].tap()
+        
+        toolbar.textViews["New Message"].tap()
+        toolbar.typeText("Test message")
+        toolbar.buttons["Send"].tap()
+        
+        app.navigationBars["messenger_app.ChatView"].buttons["Back"].tap()
+        
+        app.buttons["Channel 3"].tap()
+        
         toolbar.textViews["New Message"].tap()
         toolbar.typeText("Test message")
         toolbar.buttons["Send"].tap()
