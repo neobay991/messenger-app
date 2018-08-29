@@ -13,7 +13,7 @@ import UIKit
 class MeshViewController: UIViewController, BFTransmitterDelegate {
     
     fileprivate var transmitter: BFTransmitter = BFTransmitter(apiKey: "Key")
-    var user: String = ""
+    var user: String = "" 
     
     override open func viewDidLoad() {
         super.viewDidLoad()
