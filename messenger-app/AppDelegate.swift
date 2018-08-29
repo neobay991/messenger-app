@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  messenger-app
 //
-//  Created by M Jawad Khan on 20/08/2018.
+//  Created by Jay Khan on 20/08/2018.
 //  Copyright © 2018 Jay Khan. All rights reserved.
 //
 
