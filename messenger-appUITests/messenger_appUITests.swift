@@ -48,6 +48,13 @@ class messengerAppUITests: messengerAppUITestsCase {
         XCTAssert(app.buttons["I ❤️ Meshenger"].exists)
     }
     
+    func testMeshFormExists() {
+        app.buttons["Mesh Mode"].tap()
+        
+        XCTAssert(app.textFields["Enter message"].exists)
+        XCTAssert(app.buttons["Send"].exists)
+    }
+    
     // It checks a new user can successfully sign up
     func testSignUpSuccess() {
         app.buttons["Sign up"].tap()
@@ -126,6 +133,27 @@ class messengerAppUITests: messengerAppUITestsCase {
         // generate a random number to append to email address
         let randomNumber = arc4random()
         let emailAdress = "test\(randomNumber)@test.com"
+        let emailTextField = app.textFields["Email"]
+        emailTextField.tap()
+        emailTextField.typeText(emailAdress)
+        
+        let passwordTextField = app.secureTextFields["Password"]
+        passwordTextField.tap()
+        
+        app.buttons["Sign up"].tap()
+        
+        XCTAssertEqual(app.alerts.element.label, "Failed to sign up")
+        XCTAssert(app.alerts.buttons["OK"].exists)
+    }
+    
+    func testSignUpFailDuplicateEmailAddress() {
+        app.buttons["Sign up"].tap()
+        
+        let usernameTextField = app.textFields["Username"]
+        usernameTextField.tap()
+        usernameTextField.typeText("test")
+        
+        let emailAdress = "test@test.com"
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
         emailTextField.typeText(emailAdress)
@@ -251,7 +279,7 @@ class messengerAppUITests: messengerAppUITestsCase {
     }
     
     // it checks a user can post to multiple channels
-    func testUserCanPostToMiultipleChannels() {
+    func testUserCanPostToMultipleChannels() {
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()
         emailTextField.typeText("test@test.com")
@@ -285,5 +313,14 @@ class messengerAppUITests: messengerAppUITestsCase {
         toolbar.textViews["New Message"].tap()
         toolbar.typeText("Test message")
         toolbar.buttons["Send"].tap()
+    }
+    
+    func testUserCanPostOnMesh() {
+        app.buttons["Mesh Mode"].tap()
+        
+        let emailTextField = app.textFields["Enter message"]
+        emailTextField.tap()
+        emailTextField.typeText("Test message")
+        app.buttons["Send"].tap()
     }
 }
