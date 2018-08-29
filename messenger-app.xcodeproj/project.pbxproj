@@ -145,12 +145,12 @@
 			isa = PBXGroup;
 			children = (
 				3BB7FA9C212AF7580045BDB3 /* AppDelegate.swift */,
-				3BB7FA9E212AF7590045BDB3 /* ChatViewController.swift */,
 				3BB7FAA0212AF7590045BDB3 /* Main.storyboard */,
 				3BB7FAA3212AF7590045BDB3 /* Assets.xcassets */,
 				3BB7FAA5212AF7590045BDB3 /* LaunchScreen.storyboard */,
 				3BB7FAA8212AF7590045BDB3 /* Info.plist */,
 				931C1F45212B034500DD1C9D /* GoogleService-Info.plist */,
+				3BB7FA9E212AF7590045BDB3 /* ChatViewController.swift */,
 				3B3E51312136E2B0009AC549 /* SignUpViewController.swift */,
 				3B3E512F2136E0FE009AC549 /* LoginViewController.swift */,
 				3B15E0E221340A0400C7A0C0 /* ChannelViewController.swift */,
