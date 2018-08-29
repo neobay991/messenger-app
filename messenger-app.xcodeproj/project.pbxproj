@@ -154,10 +154,10 @@
 				3BB7FAA8212AF7590045BDB3 /* Info.plist */,
 				931C1F45212B034500DD1C9D /* GoogleService-Info.plist */,
 				D5D7C31C212C217F003F6590 /* UserViewController.swift */,
+				3B3E51312136E2B0009AC549 /* SignUpViewController.swift */,
 				3B3E512F2136E0FE009AC549 /* LoginViewController.swift */,
 				3B15E0E221340A0400C7A0C0 /* ChannelViewController.swift */,
 				93490D8F21358D06005FA027 /* meshChatViewController.swift */,
-				3B3E51312136E2B0009AC549 /* SignUpViewController.swift */,
 			);
 			path = "messenger-app";
 			sourceTree = "<group>";
