@@ -34,7 +34,7 @@ class ChannelViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var chatViewController = segue.destination as! ChatViewController
+        let chatViewController = segue.destination as! ChatViewController
         if channelButton1.isTouchInside {
             chatViewController.channelParam = channelButton1.currentTitle!
             print("button 1 pressed")
