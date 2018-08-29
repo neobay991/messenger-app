@@ -11,7 +11,6 @@ import Firebase
 
 class ChannelViewController: UIViewController {
 
-  
     @IBOutlet weak var channelButton1: UIButton!
     @IBOutlet weak var channelButton2: UIButton!
     @IBOutlet weak var channelButton3: UIButton!
