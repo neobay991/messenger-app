@@ -13,7 +13,7 @@ import UIKit
 class MeshViewController: UIViewController, BFTransmitterDelegate {
     
     fileprivate var transmitter: BFTransmitter = BFTransmitter(apiKey: "Key")
-    var user: String = "" 
+    var user: String = ""
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -84,5 +84,15 @@ class MeshViewController: UIViewController, BFTransmitterDelegate {
         let alert = UIAlertController(title: "Error", message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alert, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.transmitter.stop()
     }
 }

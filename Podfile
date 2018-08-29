@@ -16,6 +16,7 @@ target 'messenger-appUITests' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'JSQMessagesViewController'
+    pod 'BFTransmitter'
 end
 
 target 'messenger-appTests' do
@@ -24,4 +25,5 @@ target 'messenger-appTests' do
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
     pod 'JSQMessagesViewController'
+    pod 'BFTransmitter'
 end
