@@ -48,6 +48,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         XCTAssert(app.buttons["I ❤️ Meshenger"].exists)
     }
     
+    // It checks the Mesh form exists
     func testMeshFormExists() {
         app.buttons["Mesh Mode"].tap()
         
@@ -146,6 +147,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         XCTAssert(app.alerts.buttons["OK"].exists)
     }
     
+    // It checks a user cannot signup if the email address has already been used
     func testSignUpFailDuplicateEmailAddress() {
         app.buttons["Sign up"].tap()
         
@@ -315,6 +317,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         toolbar.buttons["Send"].tap()
     }
     
+    // It checks a user can post using Mesh 
     func testUserCanPostOnMesh() {
         app.buttons["Mesh Mode"].tap()
         
