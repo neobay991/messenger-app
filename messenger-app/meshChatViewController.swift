@@ -90,4 +90,9 @@ class MeshViewController: UIViewController, BFTransmitterDelegate {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.transmitter.stop()
+    }
 }
