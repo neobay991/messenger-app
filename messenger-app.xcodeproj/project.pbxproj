@@ -21,6 +21,7 @@
 		77BCA2239D2B0D4B3008B7E8 /* Pods_messenger_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C0F336AB22488868C04626 /* Pods_messenger_appTests.framework */; };
 		931C1F46212B034500DD1C9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 931C1F45212B034500DD1C9D /* GoogleService-Info.plist */; };
 		931C1F48212B04E500DD1C9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C1F47212B04E500DD1C9D /* Constants.swift */; };
+		93490D9021358D06005FA027 /* meshChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93490D8F21358D06005FA027 /* meshChatViewController.swift */; };
 		93BD8462212AFB0000FD33EF /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 93BD8461212AFB0000FD33EF /* Podfile */; };
 		D5D7C31D212C217F003F6590 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D7C31C212C217F003F6590 /* UserViewController.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		931C1F44212AFEA000DD1C9D /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		931C1F45212B034500DD1C9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		931C1F47212B04E500DD1C9D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		93490D8F21358D06005FA027 /* meshChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meshChatViewController.swift; sourceTree = "<group>"; };
 		93BD8461212AFB0000FD33EF /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A10BAB4B32624693667F61FC /* Pods-messenger-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messenger-appTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-messenger-appTests/Pods-messenger-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A566A8430993069BE5CEC922 /* Pods-messenger-appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messenger-appUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-messenger-appUITests/Pods-messenger-appUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				931C1F45212B034500DD1C9D /* GoogleService-Info.plist */,
 				D5D7C31C212C217F003F6590 /* UserViewController.swift */,
 				3B15E0E221340A0400C7A0C0 /* ChannelViewController.swift */,
+				93490D8F21358D06005FA027 /* meshChatViewController.swift */,
 			);
 			path = "messenger-app";
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-messenger-app/Pods-messenger-app-frameworks.sh",
+				"${PODS_ROOT}/BFTransmitter/BFTransmitter.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
@@ -354,6 +358,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BFTransmitter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
@@ -470,6 +475,7 @@
 				3BB7FA9D212AF7580045BDB3 /* AppDelegate.swift in Sources */,
 				931C1F48212B04E500DD1C9D /* Constants.swift in Sources */,
 				3B15E0E321340A0400C7A0C0 /* ChannelViewController.swift in Sources */,
+				93490D9021358D06005FA027 /* meshChatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,13 +652,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 59DM9F2W6S;
+				DEVELOPMENT_TEAM = ZAS292B37D;
 				INFOPLIST_FILE = "messenger-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Messenger-Group.messenger-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CornelisHeuperman.Meshenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
@@ -668,13 +675,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 59DM9F2W6S;
+				DEVELOPMENT_TEAM = ZAS292B37D;
 				INFOPLIST_FILE = "messenger-app/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Messenger-Group.messenger-app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CornelisHeuperman.Meshenger;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
