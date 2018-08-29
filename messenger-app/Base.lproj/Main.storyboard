@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--User View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="UserViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,8 +88,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="GPR-9K-g9x"/>
                     <connections>
-                        <outlet property="emailText" destination="uVA-Ko-Ill" id="C4L-MM-i96"/>
-                        <outlet property="passwordText" destination="BQ3-jE-NNq" id="LXZ-IH-udC"/>
+                        <outlet property="emailText" destination="uVA-Ko-Ill" id="RIY-Es-Ieo"/>
+                        <outlet property="passwordText" destination="BQ3-jE-NNq" id="WvN-PT-gWP"/>
                         <segue destination="VbS-d4-tpW" kind="show" identifier="Log in successful" id="cTQ-Ie-7FO"/>
                     </connections>
                 </viewController>
@@ -318,6 +318,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FWR-lb-sKI"/>
+        <segue reference="cTQ-Ie-7FO"/>
     </inferredMetricsTieBreakers>
 </document>
