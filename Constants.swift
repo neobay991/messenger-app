@@ -11,6 +11,7 @@ import Firebase
 
 struct Constants {
     struct Refs {
+        static let database = Auth.auth()
         static let databaseRoot = Database.database().reference()
         static let databaseChats = databaseRoot.child("messenger-app")
     }

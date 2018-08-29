@@ -10,22 +10,14 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController {
-    let database = Auth.auth()
     
-
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
-    
-    
-    
-//    @IBOutlet weak var usernameText: UITextField!
-//    @IBOutlet weak var emailText: UITextField!
-//    @IBOutlet weak var passwordText: UITextField!
     
     @IBAction func logIn(_ sender: UIButton) {
         let email = emailText.text!
         let password = passwordText.text!
-        database.signIn(withEmail: email, password: password, completion: { ( user, error) in
+        Constants.Refs.database.signIn(withEmail: email, password: password, completion: { ( user, error) in
             if user != nil {
                 self.performSegue(withIdentifier: "Log in successful", sender: self)
             }
