@@ -171,7 +171,7 @@
                         <outlet property="emailText" destination="Ic1-Nb-7Dp" id="gjw-SN-8Xe"/>
                         <outlet property="passwordText" destination="RtX-Z2-Lfq" id="KZL-fk-gUy"/>
                         <outlet property="usernameText" destination="xEf-0N-Yif" id="ElC-Pb-c0O"/>
-                        <segue destination="VbS-d4-tpW" kind="show" identifier="Sign up succesful" id="FWR-lb-sKI"/>
+                        <segue destination="VbS-d4-tpW" kind="show" identifier="Sign up successful" id="FWR-lb-sKI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsj-Gp-b2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
