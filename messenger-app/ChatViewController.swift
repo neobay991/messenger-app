@@ -33,7 +33,7 @@ class ChatViewController: JSQMessagesViewController {
         let defaults = UserDefaults.standard
 
         // get users firebase User UID
-        let userID = Auth.auth().currentUser!.uid
+        let userID = Constants.Refs.database.currentUser!.uid
         
         // set selected channel to a constant
         let selectedChannel = channelParam
@@ -116,7 +116,7 @@ class ChatViewController: JSQMessagesViewController {
         
     {
         let ref = Constants.Refs.databaseChats.childByAutoId()
-        let name = Auth.auth().currentUser!.displayName
+        let name = Constants.Refs.database.currentUser!.displayName
         let message = ["sender_id": senderId, "name": name, "text": text, "channel": channelParam]
         
         ref.setValue(message)

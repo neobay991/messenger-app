@@ -200,7 +200,8 @@ class messengerAppUITests: messengerAppUITestsCase {
         XCTAssertEqual(app.alerts.element.label, "Failed to log in")
         XCTAssert(app.alerts.buttons["OK"].exists)
     }
-    
+
+    // it checks a new user can post to a channel
     func testNewUserCanPost() {
         app.buttons["Sign up"].tap()
         
@@ -229,6 +230,7 @@ class messengerAppUITests: messengerAppUITestsCase {
         toolbar.buttons["Send"].tap()
     }
     
+    // it checks an existing can post to a channel
     func testExistingUserCanPost() {
         let emailTextField = app.textFields["Email"]
         emailTextField.tap()

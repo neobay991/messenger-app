@@ -2,7 +2,7 @@
 //  ChannelViewController.swift
 //  messenger-app
 //
-//  Created by M Jawad Khan on 27/08/2018.
+//  Created by Jay Khan on 27/08/2018.
 //  Copyright © 2018 Jay Khan. All rights reserved.
 //
 
@@ -11,7 +11,6 @@ import Firebase
 
 class ChannelViewController: UIViewController {
 
-  
     @IBOutlet weak var channelButton1: UIButton!
     @IBOutlet weak var channelButton2: UIButton!
     @IBOutlet weak var channelButton3: UIButton!
@@ -35,7 +34,7 @@ class ChannelViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var chatViewController = segue.destination as! ChatViewController
+        let chatViewController = segue.destination as! ChatViewController
         if channelButton1.isTouchInside {
             chatViewController.channelParam = channelButton1.currentTitle!
             print("button 1 pressed")

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--User View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="UserViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,8 +88,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="GPR-9K-g9x"/>
                     <connections>
-                        <outlet property="emailText" destination="uVA-Ko-Ill" id="C4L-MM-i96"/>
-                        <outlet property="passwordText" destination="BQ3-jE-NNq" id="LXZ-IH-udC"/>
+                        <outlet property="emailText" destination="uVA-Ko-Ill" id="RIY-Es-Ieo"/>
+                        <outlet property="passwordText" destination="BQ3-jE-NNq" id="WvN-PT-gWP"/>
                         <segue destination="VbS-d4-tpW" kind="show" identifier="Log in successful" id="cTQ-Ie-7FO"/>
                     </connections>
                 </viewController>
@@ -97,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="-602.39999999999998" y="-123.68815592203899"/>
         </scene>
-        <!--User View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="8WU-v7-VvD">
             <objects>
-                <viewController id="shA-KI-Hmz" customClass="UserViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="shA-KI-Hmz" customClass="SignUpViewController" customModule="messenger_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xy0-Xt-xiF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,9 +168,9 @@
                         <viewLayoutGuide key="safeArea" id="9ZQ-8C-2yM"/>
                     </view>
                     <connections>
-                        <outlet property="emailText" destination="Ic1-Nb-7Dp" id="gjw-SN-8Xe"/>
-                        <outlet property="passwordText" destination="RtX-Z2-Lfq" id="KZL-fk-gUy"/>
-                        <outlet property="usernameText" destination="xEf-0N-Yif" id="ElC-Pb-c0O"/>
+                        <outlet property="emailText" destination="Ic1-Nb-7Dp" id="9Zv-sg-TfC"/>
+                        <outlet property="passwordText" destination="RtX-Z2-Lfq" id="5yE-to-imh"/>
+                        <outlet property="usernameText" destination="xEf-0N-Yif" id="WWE-wL-ZPE"/>
                         <segue destination="VbS-d4-tpW" kind="show" identifier="Sign up successful" id="FWR-lb-sKI"/>
                     </connections>
                 </viewController>
